@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeFlow.Presentation.Menu.MenuFragment">
+
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/my_transaction_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@android:color/transparent"
+        android:drawableStart="@drawable/baseline_assignment_turned_in_24"
+        android:drawablePadding="5dp"
+        android:gravity="start|center"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="10dp"
+        android:text="My Transactions"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/support_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@android:color/transparent"
+        android:drawableStart="@drawable/baseline_support_agent_24"
+        android:drawablePadding="5dp"
+        android:gravity="start|center"
+        android:paddingHorizontal="30dp"
+        android:text="Support"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/my_transaction_btn" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/privacy_security_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@android:color/transparent"
+        android:drawableStart="@drawable/outline_lock_person_24"
+        android:drawablePadding="5dp"
+        android:gravity="start|center"
+        android:paddingHorizontal="30dp"
+        android:text="Privacy , Security"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/support_btn" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/about_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@android:color/transparent"
+        android:drawableStart="@drawable/outline_error_outline_24"
+        android:drawablePadding="5dp"
+        android:gravity="start|center"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="10dp"
+        android:text="About"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/privacy_security_btn"
+        tools:layout_editor_absoluteX="-77dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/log_out_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@android:color/transparent"
+        android:drawableStart="@drawable/baseline_login_24"
+        android:drawablePadding="5dp"
+        android:gravity="start|center"
+        android:paddingHorizontal="30dp"
+        android:paddingVertical="10dp"
+        android:text="About"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/about_btn"
+        tools:layout_editor_absoluteX="-77dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_home_page"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="30dp"
+        android:paddingHorizontal="40dp"
+        app:cornerRadius="10dp"
+        android:paddingVertical="5dp"
+        android:text="Home page"
+        android:backgroundTint="#D6D3D3"
+        android:elevation="20dp"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+
+        app:layout_constraintVertical_bias="0.294"
+        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_menu"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="30dp"
+        android:paddingHorizontal="40dp"
+        app:cornerRadius="10dp"
+        android:paddingVertical="5dp"
+        android:text="Menu"
+        android:backgroundTint="@color/base_green"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp"
+
+        app:layout_constraintVertical_bias="0.294"
+        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
