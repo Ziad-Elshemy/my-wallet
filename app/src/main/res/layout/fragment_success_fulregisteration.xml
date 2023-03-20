@@ -44,7 +44,7 @@
             android:paddingHorizontal="40dp"
             app:cornerRadius="10dp"
             android:paddingVertical="5dp"
-            android:text="Explore the opp"
+            android:text="Explore the app"
             android:backgroundTint="@color/base_green"
             android:textAllCaps="false"
             android:textColor="@color/white"

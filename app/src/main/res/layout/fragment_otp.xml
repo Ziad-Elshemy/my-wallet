@@ -99,11 +99,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pinView_otpCode" />
 
-            <ImageView
+            <ProgressBar
                 android:id="@+id/lock"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
+                android:indeterminate="true"
+                android:indeterminateTintMode="src_atop"
+                android:indeterminateTint="@color/black"
                 android:src="@drawable/baseline_lock_person_24"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"

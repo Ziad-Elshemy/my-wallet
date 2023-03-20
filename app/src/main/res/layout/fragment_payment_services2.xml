@@ -110,24 +110,25 @@
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/base_green"
         android:paddingHorizontal="40dp"
-        app:cornerRadius="10dp"
         android:paddingVertical="5dp"
         android:text="Confirm"
-        android:backgroundTint="@color/base_green"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="30dp"
+        app:cornerRadius="10dp"
 
-        app:layout_constraintVertical_bias="0.294"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_et"
+        app:layout_constraintVertical_bias="0.166"
         tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
+    Purchases
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
