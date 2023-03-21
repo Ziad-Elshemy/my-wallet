@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.Home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_payCodeFragment"
+            app:destination="@id/payCodeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_myTransactionFragment"
+            app:destination="@id/myTransactionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_moneyTransferFragment"
+            app:destination="@id/moneyTransferFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_myProfileFragment"
+            app:destination="@id/myProfileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_cardDepositFragment"
+            app:destination="@id/cardDepositFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_withDrawFragment"
+            app:destination="@id/withDrawFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_depositFragment"
+            app:destination="@id/depositFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_paymentServicesFragment"
+            app:destination="@id/paymentServicesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.Menu.MenuFragment"
+        android:label="MenuFragment"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menuFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_myTransactionFragment"
+            app:destination="@id/myTransactionFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_aboutFragment2"
+            app:destination="@id/aboutFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/payCodeFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.PayCode.PayCodeFragment"
+        android:label="PayCodeFragment" >
+        <action
+            android:id="@+id/action_payCodeFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_payCodeFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myTransactionFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.myTransaction.MyTransactionFragment"
+        android:label="MyTransactionFragment" >
+        <action
+            android:id="@+id/action_myTransactionFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_myTransactionFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/moneyTransferFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.MoneyTransfer.MoneyTransferFragment"
+        android:label="MoneyTransferFragment" >
+        <action
+            android:id="@+id/action_moneyTransferFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_moneyTransferFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myProfileFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.MyProfile.MyProfileFragment"
+        android:label="MyProfileFragment" >
+        <action
+            android:id="@+id/action_myProfileFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_myProfileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cardDepositFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.CardDeposit.CardDepositFragment"
+        android:label="CardDepositFragment" >
+        <action
+            android:id="@+id/action_cardDepositFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_cardDepositFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/withDrawFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.Withdraw.WithDrawFragment"
+        android:label="WithDrawFragment" >
+        <action
+            android:id="@+id/action_withDrawFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_withDrawFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_withDrawFragment_to_cardDepositFragment"
+            app:destination="@id/cardDepositFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/depositFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.Deposit.DepositFragment"
+        android:label="DepositFragment" >
+        <action
+            android:id="@+id/action_depositFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_depositFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentServicesFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.PaymentServices.PaymentServicesFragment"
+        android:label="PaymentServicesFragment" >
+        <action
+            android:id="@+id/action_paymentServicesFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_paymentServicesFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_paymentServicesFragment_to_paymentServices2Fragment"
+            app:destination="@id/paymentServices2Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentServices2Fragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.PaymentServices2.PaymentServices2Fragment"
+        android:label="PaymentServices2Fragment" >
+        <action
+            android:id="@+id/action_paymentServices2Fragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_paymentServices2Fragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferFailedFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.TransferFailed.TransferFailedFragment"
+        android:label="TransferFailedFragment" />
+    <fragment
+        android:id="@+id/aboutFragment2"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.About.AboutFragment"
+        android:label="AboutFragment" >
+        <action
+            android:id="@+id/action_aboutFragment2_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_aboutFragment2_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.Notifications.NotificationsFragment"
+        android:label="NotificationsFragment" >
+        <action
+            android:id="@+id/action_notificationsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_notificationsFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transferDoneFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.TransferDone.TransferDoneFragment"
+        android:label="TransferDoneFragment" />
+    <fragment
+        android:id="@+id/tellerDepositFragment"
+        android:name="com.easy_pro_code.wallet.HomeFlow.Presentation.TellerDeposit.TellerDepositFragment"
+        android:label="TellerDepositFragment" />
+</navigation>

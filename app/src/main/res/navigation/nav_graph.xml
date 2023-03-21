@@ -34,16 +34,25 @@
         android:name="com.easy_pro_code.wallet.AuthFlow.Presentation.otp.OtpFragment"
         android:label="OtpFragment"
         tools:layout="@layout/fragment_otp">
-        <action
-            android:id="@+id/action_otpFragment_to_successFullRegisterationFragment"
-            app:destination="@id/successFullRegisterationFragment" />
         <argument
             android:name="verificationId"
             app:argType="string" />
+        <action
+            android:id="@+id/action_otpFragment_to_registerationFragment"
+            app:destination="@id/registerationFragment" />
     </fragment>
     <fragment
         android:id="@+id/successFullRegisterationFragment"
         android:name="com.easy_pro_code.wallet.AuthFlow.Presentation.SuccessFulregisteration.SuccessFullRegisterationFragment"
         android:label="SuccessFullRegisterationFragment"
         tools:layout="@layout/fragment_success_fulregisteration"/>
+    <fragment
+        android:id="@+id/registerationFragment"
+        android:name="com.easy_pro_code.wallet.AuthFlow.Presentation.Registeration.RegisterationFragment"
+        android:label="RegisterationFragment"
+        tools:layout="@layout/fragment_registeration">
+        <action
+            android:id="@+id/action_registerationFragment_to_successFullRegisterationFragment"
+            app:destination="@id/successFullRegisterationFragment" />
+    </fragment>
 </navigation>
