@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.easy_pro_code.wallet.AuthFlow.Presentation.Login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.easy_pro_code.wallet.AuthFlow.Presentation.SignUp.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_sign_up">
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.easy_pro_code.wallet.AuthFlow.Presentation.otp.OtpFragment"
+        android:label="OtpFragment"
+        tools:layout="@layout/fragment_otp">
+        <action
+            android:id="@+id/action_otpFragment_to_successFullRegisterationFragment"
+            app:destination="@id/successFullRegisterationFragment" />
+        <argument
+            android:name="verificationId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/successFullRegisterationFragment"
+        android:name="com.easy_pro_code.wallet.AuthFlow.Presentation.SuccessFulregisteration.SuccessFullRegisterationFragment"
+        android:label="SuccessFullRegisterationFragment"
+        tools:layout="@layout/fragment_success_fulregisteration"/>
+</navigation>

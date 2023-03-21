@@ -108,6 +108,19 @@
             app:layout_constraintVertical_bias="0.294"
             tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
+        <ProgressBar
+            android:id="@+id/progress_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:indeterminateTint="@color/black"
+            android:paddingHorizontal="40dp"
+            android:paddingVertical="5dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_password"/>
+
         <TextView
             android:id="@+id/haveAnAccount"
             android:layout_width="wrap_content"
