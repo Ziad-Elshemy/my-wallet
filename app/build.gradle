@@ -69,13 +69,6 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-auth:21.0.3'
 
-    //
-    //chat
-
-    //implementation project(":Chat")
-
-//    implementation 'com.sendbird.sdk:sendbird-android-sdk:3.1.25'
-
 
     //navigation
     def nav_version = "2.5.3"
@@ -105,7 +98,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.15.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.15.0'
 
-    implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0-alpha11"
+//    implementation "android.arch.navigation:navigation-fragment-ktx:1.0.0"
 
     //material design
     implementation 'com.google.android.material:material:1.9.0-alpha02'
