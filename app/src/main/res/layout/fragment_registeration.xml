@@ -1,165 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".AuthFlow.Presentation.Registeration.RegisterationFragment">
+        android:background="@color/background_color">
 
-        <TextView
-            android:id="@+id/identity_tv"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
-            android:text="Please verify your identity"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_height="match_parent"
+            tools:context=".AuthFlow.Presentation.Registeration.RegisterationFragment">
 
-        <TextView
-            android:id="@+id/id_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
-            android:text="National ID"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/identity_tv" />
+            <TextView
+                android:id="@+id/identity_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/regular"
+                android:text="@string/please_verify_your_identity"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/identity_et"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/text_view_radius"
-            android:hint="National ID"
-            android:paddingHorizontal="20dp"
-            app:layout_constraintStart_toStartOf="@id/id_tv"
-            app:layout_constraintTop_toBottomOf="@id/id_tv" />
+            <TextView
+                android:id="@+id/id_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/medium"
+                android:text="@string/national_id"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/identity_tv" />
 
-        <TextView
-            android:id="@+id/id_photo_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
-            android:text="National ID Photo"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/identity_et" />
+            <EditText
+                android:id="@+id/identity_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/text_view_radius"
+                android:fontFamily="@font/regular"
+                android:hint="@string/national_id"
+                android:minHeight="48dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="10dp"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/hint_text_color"
+                app:layout_constraintEnd_toEndOf="@+id/id_tv"
+                app:layout_constraintStart_toStartOf="@id/id_tv"
+                app:layout_constraintTop_toBottomOf="@id/id_tv" />
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/photo_id_card"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_marginHorizontal="25dp"
-            android:layout_marginTop="20dp"
-            app:cardCornerRadius="15dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/id_photo_tv">
+            <TextView
+                android:id="@+id/id_photo_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:text="@string/national_id_photo"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                android:fontFamily="@font/medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/identity_et" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/photo_id_card"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginHorizontal="25dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/id_photo_tv">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/card_background" />
+
+
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/upload_identity_photo_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/hint_text_color"
+                android:drawableLeft="@drawable/baseline_upgrade_24"
+                android:text="@string/re_upload"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:cornerRadius="12dp"
+                android:fontFamily="@font/regular"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/photo_id_card" />
+
+            <TextView
+                android:id="@+id/profile_photo_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="25dp"
+                android:text="@string/profile_photo"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upload_identity_photo_btn" />
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/card_background" />
+                android:id="@+id/profile_photo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/profile_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profile_photo_tv" />
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/upload_profile_photo_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:backgroundTint="@color/hint_text_color"
+                android:drawableLeft="@drawable/baseline_upgrade_24"
+                android:text="@string/re_upload"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:cornerRadius="12dp"
+                android:fontFamily="@font/regular"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profile_photo" />
 
-        </androidx.cardview.widget.CardView>
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/upload_identity_photo_btn"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#DDD9D9"
-            android:drawableLeft="@drawable/baseline_upgrade_24"
-            android:text="Re-upload"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            app:cornerRadius="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/photo_id_card" />
-
-        <TextView
-            android:id="@+id/profile_photo_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
-            android:text="Profile Photo"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/upload_identity_photo_btn" />
-
-        <ImageView
-            android:id="@+id/profile_photo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@drawable/profile_background"
-            android:layout_marginTop="20dp"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profile_photo_tv" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/upload_profile_photo_btn"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="10dp"
-            android:backgroundTint="#DDD9D9"
-            android:drawableLeft="@drawable/baseline_upgrade_24"
-            android:text="Re-upload"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            app:cornerRadius="12dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profile_photo" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/explore_otp_btn"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="60dp"
-            android:paddingHorizontal="40dp"
-            app:cornerRadius="10dp"
-            android:paddingVertical="5dp"
-            android:text="Explore the app"
-            android:backgroundTint="@color/base_green"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.54"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/upload_profile_photo_btn"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintVertical_bias="0.294"
-            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/explore_otp_btn"
+                android:layout_width="280dp"
+                android:layout_height="50dp"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="@color/button_primary_color"
+                android:paddingHorizontal="40dp"
+                android:paddingVertical="5dp"
+                android:text="@string/explore_the_app"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:cornerRadius="10dp"
+                android:fontFamily="@font/regular"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.54"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/upload_profile_photo_btn"
+                app:layout_constraintVertical_bias="0.294"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

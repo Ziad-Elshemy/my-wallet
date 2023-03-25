@@ -1,272 +1,321 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".HomeFlow.Presentation.MoneyTransfer.MoneyTransferFragment">
+        android:background="@color/background_color">
 
-
-
-
-        <TextView
-            android:id="@+id/name_on_card_tv"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Name on card"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
-        <EditText
-            android:id="@+id/name_on_card_et"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/text_view_radius"
-            android:paddingHorizontal="20dp"
-            app:layout_constraintStart_toStartOf="@id/name_on_card_tv"
-            app:layout_constraintTop_toBottomOf="@id/name_on_card_tv" />
+            android:layout_height="match_parent"
+            tools:context=".HomeFlow.Presentation.MoneyTransfer.MoneyTransferFragment">
 
-        <TextView
-            android:id="@+id/id_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:text="National ID"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/name_on_card_et" />
-        <EditText
-            android:id="@+id/id_et"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/text_view_radius"
-            android:paddingHorizontal="20dp"
-            app:layout_constraintStart_toStartOf="@id/id_tv"
-            app:layout_constraintTop_toBottomOf="@id/id_tv" />
+            <TextView
+                android:id="@+id/name_on_card_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/name_on_card"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/reason_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Reason for the transfer"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/id_et" />
-        <EditText
-            android:id="@+id/reason_et"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/text_view_radius"
-            android:paddingHorizontal="20dp"
-            app:layout_constraintStart_toStartOf="@id/reason_tv"
-            app:layout_constraintTop_toBottomOf="@id/reason_tv" />
+            <EditText
+                android:id="@+id/name_on_card_et"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/text_view_radius"
+                android:paddingHorizontal="20dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/hint_text_color"
+                app:layout_constraintStart_toStartOf="@id/name_on_card_tv"
+                app:layout_constraintTop_toBottomOf="@id/name_on_card_tv" />
 
-        <TextView
-            android:id="@+id/amount_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Amount"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/reason_et" />
-        <EditText
-            android:id="@+id/amount_et"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/text_view_radius"
-            android:paddingHorizontal="20dp"
-            app:layout_constraintStart_toStartOf="@id/amount_tv"
-            app:layout_constraintTop_toBottomOf="@id/amount_tv" />
+            <TextView
+                android:id="@+id/id_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/national_id"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/name_on_card_et" />
 
-        <TextView
-            android:id="@+id/bank_card_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Bank card number"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/amount_et" />
-        <EditText
-            android:id="@+id/bank_card_et"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/text_view_radius"
-            android:paddingHorizontal="20dp"
-            app:layout_constraintStart_toStartOf="@id/bank_card_tv"
-            app:layout_constraintTop_toBottomOf="@id/bank_card_tv" />
+            <EditText
+                android:id="@+id/id_et"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/text_view_radius"
+                android:paddingHorizontal="20dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/hint_text_color"
+                app:layout_constraintStart_toStartOf="@id/id_tv"
+                app:layout_constraintTop_toBottomOf="@id/id_tv" />
 
-        <TextView
-            android:id="@+id/card_exp_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Card expiry date"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bank_card_et" />
-        <EditText
-            android:id="@+id/card_exp_et"
-            android:layout_width="180dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/text_view_radius"
-            android:paddingHorizontal="20dp"
-            app:layout_constraintStart_toStartOf="@id/card_exp_tv"
-            app:layout_constraintTop_toBottomOf="@id/card_exp_tv" />
+            <TextView
+                android:id="@+id/reason_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/reason_for_the_transfer"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/id_et" />
 
-        <TextView
-            android:id="@+id/cvv_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:text="CVV"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="@+id/cvv_et"
-            app:layout_constraintTop_toTopOf="@id/card_exp_tv" />
-        <EditText
-            android:id="@+id/cvv_et"
-            android:layout_width="180dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/text_view_radius"
-            android:paddingHorizontal="20dp"
-            app:layout_constraintStart_toEndOf="@id/card_exp_et"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/card_exp_et"/>
+            <EditText
+                android:id="@+id/reason_et"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/hint_text_color"
+                android:background="@drawable/text_view_radius"
+                android:paddingHorizontal="20dp"
+                app:layout_constraintStart_toStartOf="@id/reason_tv"
+                app:layout_constraintTop_toBottomOf="@id/reason_tv" />
 
-        <TextView
-            android:id="@+id/password_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="10dp"
-            android:text="Password"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_exp_et" />
-        <EditText
-            android:id="@+id/password_et"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/text_view_radius"
-            android:paddingHorizontal="20dp"
-            android:drawableEnd="@drawable/baseline_visibility_24"
-            app:layout_constraintStart_toStartOf="@id/password_tv"
-            app:layout_constraintTop_toBottomOf="@id/password_tv" />
+            <TextView
+                android:id="@+id/amount_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/amount"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/reason_et" />
 
+            <EditText
+                android:id="@+id/amount_et"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/hint_text_color"
+                android:background="@drawable/text_view_radius"
+                android:paddingHorizontal="20dp"
+                app:layout_constraintStart_toStartOf="@id/amount_tv"
+                app:layout_constraintTop_toBottomOf="@id/amount_tv" />
 
+            <TextView
+                android:id="@+id/bank_card_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/bank_card_number"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/amount_et" />
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_login"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
-            android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="15dp"
-            android:paddingHorizontal="40dp"
-            app:cornerRadius="10dp"
-            android:paddingVertical="5dp"
-            android:text="Transfer Now"
-            android:backgroundTint="@color/base_green"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.54"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/password_et"
-            app:layout_constraintBottom_toTopOf="@id/btn_home_page"
-            android:layout_marginBottom="10dp"
+            <EditText
+                android:id="@+id/bank_card_et"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/hint_text_color"
+                android:background="@drawable/text_view_radius"
+                android:paddingHorizontal="20dp"
+                app:layout_constraintStart_toStartOf="@id/bank_card_tv"
+                app:layout_constraintTop_toBottomOf="@id/bank_card_tv" />
 
-            app:layout_constraintVertical_bias="0.294"
-            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_home_page"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="30dp"
-            android:paddingHorizontal="40dp"
-            app:cornerRadius="10dp"
-            android:paddingVertical="5dp"
-            android:text="Home page"
-            android:backgroundTint="#D6D3D3"
-            android:elevation="20dp"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintHorizontal_bias="0.54"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
+            <TextView
+                android:id="@+id/card_exp_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/card_expiry_date"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bank_card_et" />
 
-            app:layout_constraintVertical_bias="0.294"
-            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_menu"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_marginHorizontal="30dp"
-            android:paddingHorizontal="40dp"
-            app:cornerRadius="10dp"
-            android:paddingVertical="5dp"
-            android:text="Menu"
-            android:backgroundTint="#D6D3D3"
-            android:textAllCaps="false"
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:layout_constraintHorizontal_bias="0.54"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
+            <EditText
+                android:id="@+id/card_exp_et"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/hint_text_color"
+                android:background="@drawable/text_view_radius"
+                android:paddingHorizontal="20dp"
+                app:layout_constraintStart_toStartOf="@id/card_exp_tv"
+                app:layout_constraintTop_toBottomOf="@id/card_exp_tv" />
 
-            app:layout_constraintVertical_bias="0.294"
-            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+            <TextView
+                android:id="@+id/cvv_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:text="CVV"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                app:layout_constraintStart_toStartOf="@+id/cvv_et"
+                app:layout_constraintTop_toTopOf="@id/card_exp_tv" />
+
+            <EditText
+                android:id="@+id/cvv_et"
+                android:layout_width="180dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="5dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/hint_text_color"
+                android:background="@drawable/text_view_radius"
+                android:paddingHorizontal="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/card_exp_et"
+                app:layout_constraintTop_toTopOf="@id/card_exp_et" />
+
+            <TextView
+                android:id="@+id/password_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Password"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_exp_et" />
+
+            <EditText
+                android:id="@+id/password_et"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:textSize="16sp"
+                android:fontFamily="@font/regular"
+                android:textColor="@color/text_color"
+                android:textColorHint="@color/hint_text_color"
+                android:background="@drawable/text_view_radius"
+                android:drawableEnd="@drawable/baseline_visibility_24"
+                android:paddingHorizontal="20dp"
+                app:layout_constraintStart_toStartOf="@id/password_tv"
+                app:layout_constraintTop_toBottomOf="@id/password_tv" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/button_primary_color"
+                android:paddingHorizontal="40dp"
+                android:paddingVertical="10dp"
+                android:text="@string/transfer_now"
+                android:textAllCaps="false"
+                android:textColor="@color/text_button_color"
+                android:textSize="20sp"
+                app:cornerRadius="10dp"
+                android:fontFamily="@font/regular"
+                app:layout_constraintBottom_toTopOf="@id/btn_home_page"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.54"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/password_et"
+                app:layout_constraintVertical_bias="0.294"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_home_page"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/hint_text_color"
+                android:elevation="20dp"
+                android:paddingHorizontal="40dp"
+                android:paddingVertical="5dp"
+                android:text="@string/home_page"
+                android:fontFamily="@font/regular"
+                android:textAllCaps="false"
+                android:textColor="@color/text_button_color"
+                android:textSize="16sp"
+                app:cornerRadius="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0.54"
+                app:layout_constraintStart_toStartOf="parent"
+
+                app:layout_constraintVertical_bias="0.294"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/button_dark_color"
+                android:paddingHorizontal="40dp"
+                android:paddingVertical="5dp"
+                android:text="@string/menu"
+                android:textAllCaps="false"
+                android:textColor="@color/text_button_color"
+                android:textSize="16sp"
+                app:cornerRadius="10dp"
+                android:fontFamily="@font/regular"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.54"
+
+                app:layout_constraintVertical_bias="0.294"
+                tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>

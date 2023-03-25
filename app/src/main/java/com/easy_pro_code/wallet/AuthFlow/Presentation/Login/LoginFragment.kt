@@ -30,11 +30,11 @@ class LoginFragment : AuthenticationFragment() {
     private lateinit var loginViewModel:LoginViewModel
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        loginViewModel =ViewModelProvider(this).get(LoginViewModel::class.java)
-
-    }
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        loginViewModel =ViewModelProvider(this).get(LoginViewModel::class.java)
+//
+//    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -165,13 +165,4 @@ class LoginFragment : AuthenticationFragment() {
     companion object{
         val TAG="phoneAuthFragment"
     }
-
-
-
-
-
-
-
-
-
 }

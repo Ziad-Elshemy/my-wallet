@@ -4,7 +4,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@color/background_color">
 
         <TextView
             android:id="@+id/select_date_tv"
@@ -12,11 +13,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="10dp"
-            android:text="Select a date range"
+            android:text="@string/select_a_date_range"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
+            android:fontFamily="@font/light"
             android:textSize="16sp"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -26,11 +27,9 @@
             android:id="@+id/divider1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            app:dividerColor="#A19E9E"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/select_date_tv"
-
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -40,11 +39,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="10dp"
-            android:text="Last 7 days"
+            android:text="@string/last_7_days"
+            android:fontFamily="@font/light"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -54,11 +53,9 @@
             android:id="@+id/divider2"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            app:dividerColor="#A19E9E"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/days_7_tv"
-
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -68,11 +65,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="10dp"
-            android:text="Last 30 days"
+            android:text="@string/last_30_days"
             android:textAlignment="center"
-            android:textColor="@color/black"
+            android:textColor="@color/text_color"
             android:textSize="16sp"
-
+            android:fontFamily="@font/light"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -82,11 +79,9 @@
             android:id="@+id/divider3"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            app:dividerColor="#A19E9E"
             android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/days_30_tv"
-
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -96,11 +91,11 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="10dp"
-            android:text="Last 90 days"
+            android:text="@string/last_90_days"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="16sp"
-
+            android:fontFamily="@font/light"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"

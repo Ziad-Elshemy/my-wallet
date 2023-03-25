@@ -6,15 +6,16 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background_color"
         tools:context=".AuthFlow.Presentation.SuccessFulregisteration.SuccessFulregisterationFragment">
 
 
         <ImageView
             android:id="@+id/success_image"
-            android:layout_width="280dp"
-            android:layout_height="280dp"
-            android:layout_marginTop="30dp"
-            android:src="@drawable/success2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/baseline_verified"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,11 +26,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="25dp"
-            android:text="Your  application is submitted and is under review"
+            android:layout_marginTop="50dp"
+            android:text="@string/your_application_is_submitted_and_is_under_review"
             android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
+            android:textSize="16sp"
+            android:fontFamily="@font/regular"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
@@ -37,14 +38,14 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/explore_otp_btn"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
             android:layout_marginTop="60dp"
             android:paddingHorizontal="40dp"
             app:cornerRadius="10dp"
-            android:paddingVertical="5dp"
-            android:text="Explore the app"
+            android:paddingVertical="10dp"
+            android:text="@string/explore_the_app"
             android:backgroundTint="@color/base_green"
             android:textAllCaps="false"
             android:textColor="@color/white"
@@ -54,7 +55,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginBottom="30dp"
-
             app:layout_constraintVertical_bias="0.294"
             tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
