@@ -8,4 +8,15 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="base_green">#00AC62</color>
+    <color name="text_button_color">#FFFFFF</color>
+    <color name="text_color">#000000</color>
+    <color name="background_color">#FFFFFF</color>
+    <color name="button_dark_color">#00AC62</color>
+    <color name="button_primary_color">#00AC62</color>
+    <color name="hint_text_color">#5C5C5C</color>
+    <color name="input_shadow_color">#FAFAFA</color>
+    <color name="input_shadow_radius_color">#DADADA</color>
+    <color name="icon_color">#000000</color>
+
+
 </resources>

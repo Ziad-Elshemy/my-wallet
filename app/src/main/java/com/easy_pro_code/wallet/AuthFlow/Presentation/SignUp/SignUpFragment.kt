@@ -25,10 +25,9 @@ import okhttp3.internal.tls.OkHostnameVerifier.verify
 import java.util.concurrent.TimeUnit
 import java.util.regex.Pattern
 
-
 class SignUpFragment : Fragment() {
 
-    lateinit var binding:FragmentSignUpBinding
+    lateinit var binding: FragmentSignUpBinding
 
     lateinit var userName: EditText
     lateinit var phoneNumber: EditText
@@ -114,34 +113,33 @@ class SignUpFragment : Fragment() {
         userName = binding.etUserName
         phoneNumber = binding.etPhoneNumber
         password = binding.etPassword
-        signUpBtn = binding.signUpBtn as MaterialButton
 
 //        gender = binding.dropdownMenuGender
         binding.signUpBtn.setOnClickListener {
-            findNavController().popBackStack()
+            findNavController().navigateUp()
         }
-        signUpBtn.setOnClickListener {
-            val phoneNumber = binding.etPhoneNumber.text
-            val password = binding.etPassword.text
-
-            if (phoneNumber.isBlank() || phoneNumber.isEmpty() || !TextUtils.isDigitsOnly(
-                    phoneNumber
-                ) || phoneNumber.length != 11
-            ) {
-                Toast.makeText(requireContext(), "Enter Valid Number", Toast.LENGTH_LONG).show()
-
-            } else if (password.isEmpty() || (!Pattern.matches(
-                    "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%^&-+=()])(?=\\\\S+\$).{8,20}\$",
-                    password
-                )
-                        )
-            ) {
-                Toast.makeText(requireContext(), "Enter Valid Email", Toast.LENGTH_LONG).show()
-
-            } else {
-                verify()
-            }
-        }
+//        signUpBtn.setOnClickListener {
+//            val phoneNumber = binding.etPhoneNumber.text
+//            val password = binding.etPassword.text
+//
+//            if (phoneNumber.isBlank() || phoneNumber.isEmpty() || !TextUtils.isDigitsOnly(
+//                    phoneNumber
+//                ) || phoneNumber.length != 11
+//            ) {
+//                Toast.makeText(requireContext(), "Enter Valid Number", Toast.LENGTH_LONG).show()
+//
+//            } else if (password.isEmpty() || (!Pattern.matches(
+//                    "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%^&-+=()])(?=\\\\S+\$).{8,20}\$",
+//                    password
+//                )
+//                        )
+//            ) {
+//                Toast.makeText(requireContext(), "Enter Valid Email", Toast.LENGTH_LONG).show()
+//
+//            } else {
+//                verify()
+//            }
+//        }
 
 
 

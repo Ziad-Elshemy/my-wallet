@@ -36,7 +36,6 @@ android {
     }
     buildFeatures{
         dataBinding true
-
     }
 }
 
@@ -53,9 +52,6 @@ dependencies {
     //viewPager2
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
 
-
-
-
     //new material design
     implementation 'com.google.android.material:material:1.9.0-alpha02'
     //PinView
@@ -65,24 +61,16 @@ dependencies {
     //coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
 
-
-
     implementation 'com.google.firebase:firebase-auth:21.0.3'
-
 
     //navigation
     def nav_version = "2.5.3"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
-
-
-
-
     //firebase phone Auth
     implementation 'com.google.firebase:firebase-auth-ktx:21.1.0'
     implementation "org.jetbrains.kotlin:kotlin-script-runtime:1.7.21"
-
 
     //retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
@@ -102,10 +90,4 @@ dependencies {
 
     //material design
     implementation 'com.google.android.material:material:1.9.0-alpha02'
-
-    //
-
-
-
-
 }

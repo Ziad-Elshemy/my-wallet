@@ -191,17 +191,15 @@
             android:layout_marginHorizontal="20dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/water_card_view">
 
 
-
-
-
             <LinearLayout
-                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/qr_image"
@@ -215,6 +213,7 @@
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/gas_price"
                     android:layout_width="wrap_content"
@@ -225,8 +224,6 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
-
-
 
 
         </androidx.cardview.widget.CardView>
@@ -292,17 +289,15 @@
             android:layout_marginHorizontal="20dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/travel_card_view">
 
 
-
-
-
             <LinearLayout
-                android:gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/qr_image"
@@ -316,6 +311,7 @@
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/education_price"
                     android:layout_width="wrap_content"
@@ -326,8 +322,6 @@
                     android:textStyle="bold" />
 
             </LinearLayout>
-
-
 
 
         </androidx.cardview.widget.CardView>
@@ -349,6 +343,7 @@
             android:layout_height="120dp"
             app:cardCornerRadius="20dp"
             app:cardElevation="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 

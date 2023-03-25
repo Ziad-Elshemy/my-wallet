@@ -1,9 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Wallet</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">محفظه</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="enter_your_mobile_number">Mobile Number</string>
-    <string name="enter_your_password">password</string>
+    <string name="enter_your_mobile_number">Enter your Mobile Number</string>
+    <string name="enter_your_password">Enter your password</string>
     <string name="login">Login</string>
     <string name="don_t_have_an_account">Don\'t have an account?</string>
     <string name="sign_up">Sign Up</string>
@@ -16,11 +16,9 @@
     <string name="please_verify_your_identity">Please verify your identity</string>
     <string name="national_id">National ID</string>
     <string name="national_id_photo">National ID Photo</string>
-    <string name="re_upload">Re-upload</string>
     <string name="profile_photo">Profile Photo</string>
     <string name="explore_the_app">Explore the app</string>
     <string name="your_application_is_submitted_and_is_under_review">Your application is submitted and is under review</string>
-    <string name="are_you_sure">Are you sure ?</string>
     <string name="no_i_want_to_stay">No, I want to stay</string>
     <string name="yes_i_want_to_log_out">Yes, I want to log out</string>
     <string name="enter_otp_code">Enter otp code</string>

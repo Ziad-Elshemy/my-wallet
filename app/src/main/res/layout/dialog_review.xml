@@ -1,124 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-
-    <TextView
-        android:id="@+id/how_satisfied_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="How satisfied are you with today's experience?"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/not_satisfied_cons"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/how_satisfied_tv">
+        android:background="@color/background_color">
 
-        <ImageView
-            android:id="@+id/not_satisfied_icon"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/emoji_not_satisfied_icon"
+        <TextView
+            android:id="@+id/how_satisfied_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/regular"
+            android:text="@string/how_satisfied_are_you_with_today_s_experience"
+            android:textColor="@color/text_color"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/not_satisfied_tv"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/not_satisfied_cons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Not satisfied"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@id/not_satisfied_icon"
-            app:layout_constraintStart_toStartOf="@id/not_satisfied_icon"
-            app:layout_constraintTop_toBottomOf="@id/not_satisfied_icon" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/neutral_cons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/satisfied_cons"
-        app:layout_constraintStart_toEndOf="@id/not_satisfied_cons"
-        app:layout_constraintTop_toBottomOf="@id/how_satisfied_tv">
-
-        <ImageView
-            android:id="@+id/neutral_icon"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/neutral_icon"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/how_satisfied_tv">
 
-        <TextView
-            android:id="@+id/neutral_tv"
+            <ImageView
+                android:id="@+id/not_satisfied_icon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/emoji_not_satisfied_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/not_satisfied_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/light"
+                android:text="@string/not_satisfied"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/not_satisfied_icon"
+                app:layout_constraintStart_toStartOf="@id/not_satisfied_icon"
+                app:layout_constraintTop_toBottomOf="@id/not_satisfied_icon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/neutral_cons"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Neutral"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@id/neutral_icon"
-            app:layout_constraintStart_toStartOf="@id/neutral_icon"
-            app:layout_constraintTop_toBottomOf="@id/neutral_icon" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/satisfied_cons"
+            app:layout_constraintStart_toEndOf="@id/not_satisfied_cons"
+            app:layout_constraintTop_toBottomOf="@id/how_satisfied_tv">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/neutral_icon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/neutral_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/satisfied_cons"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/how_satisfied_tv">
+            <TextView
+                android:id="@+id/neutral_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/light"
+                android:text="@string/neutral"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
 
-        <ImageView
-            android:id="@+id/satisfied_icon"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/smiling_icon"
+                app:layout_constraintEnd_toEndOf="@id/neutral_icon"
+                app:layout_constraintStart_toStartOf="@id/neutral_icon"
+                app:layout_constraintTop_toBottomOf="@id/neutral_icon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/satisfied_cons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/how_satisfied_tv">
 
-        <TextView
-            android:id="@+id/satisfied_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Satisfied"
-            android:layout_marginTop="8dp"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="@id/satisfied_icon"
-            app:layout_constraintStart_toStartOf="@id/satisfied_icon"
-            app:layout_constraintTop_toBottomOf="@id/satisfied_icon" />
+            <ImageView
+                android:id="@+id/satisfied_icon"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/smiling_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/satisfied_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/light"
+                android:text="@string/satisfied"
+                android:textColor="@color/text_color"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/satisfied_icon"
+                app:layout_constraintStart_toStartOf="@id/satisfied_icon"
+                app:layout_constraintTop_toBottomOf="@id/satisfied_icon" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
