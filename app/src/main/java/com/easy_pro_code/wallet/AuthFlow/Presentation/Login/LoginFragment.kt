@@ -69,8 +69,6 @@ class LoginFragment : AuthenticationFragment() {
                     Toast.makeText(requireContext(), "please sign up first", Toast.LENGTH_SHORT).show()
                     loginViewModel.clearLiveData()
                     findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
-                }else if(response.message.equals("Invalid user")){
-                    Toast.makeText(requireContext(), "something went wrong", Toast.LENGTH_SHORT).show()
                 } else{
                     /////////user found ---> Go to Otp Page
                     sendPhoneNumber(callbacks)

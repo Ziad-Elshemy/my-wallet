@@ -94,7 +94,7 @@ class OtpFragment : AuthenticationFragment() {
                     {
                         findNavController().navigate(OtpFragmentDirections.actionOtpFragmentToRegisterationFragment())
                     }
-                    else if (userData.status == 1)
+                    else if (userData.status == 2)
                     {
                         val homeIntent = Intent(requireContext(), HomeActivity::class.java)
                         startActivity(homeIntent)
@@ -104,6 +104,10 @@ class OtpFragment : AuthenticationFragment() {
                     {
                         Toast.makeText(requireContext(), "Checking Your paper", Toast.LENGTH_SHORT).show()
 
+                    }
+                    else if(userData.status == 1)
+                    {
+                        findNavController().navigate(OtpFragmentDirections.actionOtpFragmentToSuccessFullRegisterationFragment())
                     }
 
 

@@ -43,6 +43,9 @@
         <argument
             android:name="userData"
             app:argType="com.easy_pro_code.wallet.data.model.remote_backend.LoginResponse" />
+        <action
+            android:id="@+id/action_otpFragment_to_successFullRegisterationFragment"
+            app:destination="@id/successFullRegisterationFragment" />
     </fragment>
     <fragment
         android:id="@+id/successFullRegisterationFragment"

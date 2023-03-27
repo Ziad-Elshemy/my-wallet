@@ -26,38 +26,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="50dp"
+
+            android:fontFamily="@font/regular"
+            android:gravity="center"
             android:text="@string/your_application_is_submitted_and_is_under_review"
             android:textColor="@color/black"
-            android:textSize="16sp"
-            android:fontFamily="@font/regular"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/success_image" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/explore_otp_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="60dp"
-            android:paddingHorizontal="40dp"
-            app:cornerRadius="10dp"
-            android:paddingVertical="10dp"
-            android:text="@string/explore_the_app"
-            android:backgroundTint="@color/base_green"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.54"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="30dp"
-            app:layout_constraintVertical_bias="0.294"
-            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

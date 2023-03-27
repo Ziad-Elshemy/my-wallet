@@ -31,8 +31,9 @@ class MoneyTransferFragment : Fragment() {
         var userPhone=AuthUtils.manager.getPhone().toString()
         userPhone = userPhone.replace("+2" , "")
 
-        Log.i("Abanofigpofig",userPhone)
+
         binding = FragmentMoneyTransferBinding.inflate(layoutInflater)
+
 
         binding.showBalance.setOnClickListener {
             val view = layoutInflater.inflate(R.layout.dialog_balance ,null)
@@ -48,9 +49,11 @@ class MoneyTransferFragment : Fragment() {
             val okButton: Button = view.findViewById(R.id.ShowBtn)
             val password:EditText = view.findViewById(R.id.passwordET)
 
+
             okButton.setOnClickListener {
 
-                    balanceViewModel.getBalance(userPhone,password.text.toString())
+                balanceViewModel.getBalance(userPhone,password.text.toString())
+
                 balanceViewModel.userLiveData.observe(viewLifecycleOwner)
                 {
                     if(it?.balance ==null)
@@ -62,6 +65,7 @@ class MoneyTransferFragment : Fragment() {
                     }
 
                 }
+
 
                 dialog_balance.dismiss()
             }
@@ -75,10 +79,12 @@ class MoneyTransferFragment : Fragment() {
                 userId = AuthUtils.manager.fetchData().id.toString(),
                 password = binding.passwordEt.text.toString()
             )
+
             transferViewModel.LiveData.observe(viewLifecycleOwner)
             {
                 it?.transfer?.id?.let{
                     Toast.makeText(requireContext(), "Transaction Done", Toast.LENGTH_SHORT).show()
+                    binding.BalanceTv.setText("*************")
                 }
                 if( it?.transfer?.id == null)
                 {
@@ -91,7 +97,6 @@ class MoneyTransferFragment : Fragment() {
         }
 
 
-        binding
 
         // Inflate the layout for this fragment
         return binding.root
