@@ -267,7 +267,6 @@
                     android:textColor="@color/black"
                     android:textSize="14sp"
                     android:textStyle="bold" />
-
                 <TextView
                     android:id="@+id/travel_price"
                     android:layout_width="wrap_content"

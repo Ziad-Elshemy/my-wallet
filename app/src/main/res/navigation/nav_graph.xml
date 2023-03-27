@@ -34,12 +34,15 @@
         android:name="com.easy_pro_code.wallet.AuthFlow.Presentation.otp.OtpFragment"
         android:label="OtpFragment"
         tools:layout="@layout/fragment_otp">
-        <argument
-            android:name="verificationId"
-            app:argType="string" />
-        <action
+O        <action
             android:id="@+id/action_otpFragment_to_registerationFragment"
             app:destination="@id/registerationFragment" />
+        <argument
+            android:name="userData"
+            app:argType="com.easy_pro_code.wallet.data.model.remote_backend.UserData" />
+        <argument
+            android:name="phoneData"
+            app:argType="com.easy_pro_code.wallet.data.model.remote_firebase.PhoneVerification" />
     </fragment>
     <fragment
         android:id="@+id/successFullRegisterationFragment"
