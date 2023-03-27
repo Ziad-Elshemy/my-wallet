@@ -55,7 +55,7 @@ class SignUpFragment : Fragment() {
         }
 
         binding.signUpBtn.setOnClickListener {
-//            findNavController().navigate(R.id.action_signUpFragment_to_otpFragment)
+            findNavController().navigate(SignUpFragmentDirections.actionSignUpFragmentToLoginFragment())
         }
 
 

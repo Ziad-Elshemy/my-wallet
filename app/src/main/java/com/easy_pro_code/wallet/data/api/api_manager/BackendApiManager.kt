@@ -3,9 +3,13 @@ package com.easy_pro_code.wallet.data.api.api_manager
 
 import com.easy_pro_code.wallet.data.api.web_services.AuthenticationWebService
 import com.easy_pro_code.wallet.data.api.web_services.ShowBalanceWebService
+import com.easy_pro_code.wallet.data.api.web_services.DepositWebService
+import com.easy_pro_code.wallet.data.api.web_services.NationalInfoWebService
+import com.easy_pro_code.wallet.data.api.web_services.TransactionsWebServices
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.util.concurrent.TimeUnit
 
 class ApiManager {
@@ -41,6 +45,18 @@ class ApiManager {
         }
         fun getBalanceData():ShowBalanceWebService{
             return getInstance().create(ShowBalanceWebService::class.java)
+        }
+
+        fun getDepositApi(): DepositWebService {
+            return getInstance().create(DepositWebService::class.java)
+        }
+
+        fun getNationalIdApi():NationalInfoWebService{
+            return getInstance().create(NationalInfoWebService::class.java)
+        }
+
+        fun getTransactionHistory() : TransactionsWebServices{
+            return getInstance().create(TransactionsWebServices::class.java)
         }
 
     }
