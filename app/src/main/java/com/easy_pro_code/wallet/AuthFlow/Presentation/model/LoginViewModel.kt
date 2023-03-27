@@ -21,6 +21,7 @@ class LoginViewModel : ViewModel(){
     private val _userLiveData = MutableLiveData<LoginResponse?>()
     val userLiveData: LiveData<LoginResponse?>
         get() = _userLiveData
+
     private val authenticationWebService: AuthenticationWebService = ApiManager.getAuthenticationApi()
 
     //sessionManager
