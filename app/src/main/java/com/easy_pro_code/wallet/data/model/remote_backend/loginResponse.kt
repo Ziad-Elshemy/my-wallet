@@ -19,6 +19,9 @@ data class LoginResponse(
 	@field:SerializedName("userName")
 	val userName: String? = null,
 
+	@field:SerializedName("Status")
+	val status:Int? = null,
+
 	@field:SerializedName("Balance")
 	val balance: Int? = null,
 	@field:SerializedName("message")

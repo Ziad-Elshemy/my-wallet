@@ -36,7 +36,7 @@ class RegisterationFragment : Fragment() {
     private val registerForIdentityResult=registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
             result->
         if(result.resultCode == Activity.RESULT_OK ){
-            viewBinding.profilePhoto.setImageURI(result.data?.data)
+            viewBinding.identityPhoto.setImageURI(result.data?.data)
         }
     }
 

@@ -47,7 +47,9 @@ class LoginFragment : AuthenticationFragment() {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
 
         startState()
+
         initViews()
+
         subscribeToLiveData()
 
         return binding.root
@@ -60,7 +62,9 @@ class LoginFragment : AuthenticationFragment() {
                     response->
                 binding.progressBarLoadingPhoneAuth.visibility = View.GONE
                 binding.btnLogin.visibility = View.GONE
+
                 Log.e("Ziad Response",binding.etPhoneNumber.text.toString())
+
                 if (response.message.equals("you are not a user")){
                     Toast.makeText(requireContext(), "please sign up first", Toast.LENGTH_SHORT).show()
                     loginViewModel.clearLiveData()
@@ -68,8 +72,11 @@ class LoginFragment : AuthenticationFragment() {
                 }else if(response.message.equals("Invalid user")){
                     Toast.makeText(requireContext(), "something went wrong", Toast.LENGTH_SHORT).show()
                 } else{
+                    /////////user found ---> Go to Otp Page
                     sendPhoneNumber(callbacks)
                     loginViewModel.onSucessfulsignIn(response, binding.etPhoneNumber.text.toString())
+                    userData = response
+
                 }
             }
 
@@ -122,6 +129,7 @@ class LoginFragment : AuthenticationFragment() {
     override fun successState(verificationId: String , token: PhoneAuthProvider.ForceResendingToken) {
         binding.progressBarLoadingPhoneAuth.visibility = View.GONE
         binding.btnLogin.visibility = View.GONE
+
         Log.i("Ziad: error" , "successState")
         //navigation
         val phoneData=PhoneVerification(verificationId,token,"+2"+binding.etPhoneNumber.text.toString())

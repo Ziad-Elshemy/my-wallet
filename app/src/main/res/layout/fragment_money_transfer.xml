@@ -146,7 +146,7 @@
         app:layout_constraintTop_toBottomOf="@id/amount_et" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/password_et"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginStart="20dp"
@@ -162,25 +162,25 @@
         app:layout_constraintTop_toBottomOf="@id/password_tv" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_login"
+        android:id="@+id/Transfer_Btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="60dp"
-        android:paddingHorizontal="40dp"
         android:layout_marginBottom="50dp"
-        app:cornerRadius="10dp"
+        android:backgroundTint="@color/button_primary_color"
+        android:fontFamily="@font/regular"
+        android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
         android:text="@string/transfer_now"
-        android:backgroundTint="@color/button_primary_color"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp"
-        android:fontFamily="@font/regular"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_et"
         app:layout_constraintVertical_bias="0.294"
         tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 

@@ -15,6 +15,7 @@ import retrofit2.HttpException
 
 class GetBalanceViewModel:ViewModel() {
 
+
     private val _userLiveData = MutableLiveData<ShowBalanceResponse?>()
 
     val userLiveData: LiveData<ShowBalanceResponse?> get() = _userLiveData

@@ -13,6 +13,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.GetBalanceViewModel
+import com.easy_pro_code.wallet.HomeFlow.ViewModels.TransferViewModel
 import com.easy_pro_code.wallet.R
 import com.easy_pro_code.wallet.data.model.remote_firebase.AuthUtils
 import com.easy_pro_code.wallet.databinding.FragmentMoneyTransferBinding
@@ -21,12 +22,16 @@ import com.easy_pro_code.wallet.databinding.FragmentMoneyTransferBinding
 class MoneyTransferFragment : Fragment() {
     lateinit var  binding: FragmentMoneyTransferBinding
     val  balanceViewModel: GetBalanceViewModel by activityViewModels()
+    val  transferViewModel:TransferViewModel by activityViewModels ()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val userPhone=AuthUtils.manager.getPhone()
+        var userPhone=AuthUtils.manager.getPhone().toString()
+        userPhone = userPhone.replace("+2" , "")
+
+        Log.i("Abanofigpofig",userPhone)
         binding = FragmentMoneyTransferBinding.inflate(layoutInflater)
 
         binding.showBalance.setOnClickListener {
@@ -44,8 +49,8 @@ class MoneyTransferFragment : Fragment() {
             val password:EditText = view.findViewById(R.id.passwordET)
 
             okButton.setOnClickListener {
-                balanceViewModel.getBalance(userPhone!!,password.text.toString())
 
+                    balanceViewModel.getBalance(userPhone,password.text.toString())
                 balanceViewModel.userLiveData.observe(viewLifecycleOwner)
                 {
                     if(it?.balance ==null)
@@ -63,6 +68,30 @@ class MoneyTransferFragment : Fragment() {
 
 
         }
+        binding.TransferBtn.setOnClickListener {
+            transferViewModel.transferBalance(
+                receiver =  binding.mobileNumberEt.text.toString(),
+                cashTransfer = binding.amountEt.text.toString().toInt(),
+                userId = AuthUtils.manager.fetchData().id.toString(),
+                password = binding.passwordEt.text.toString()
+            )
+            transferViewModel.LiveData.observe(viewLifecycleOwner)
+            {
+                it?.transfer?.id?.let{
+                    Toast.makeText(requireContext(), "Transaction Done", Toast.LENGTH_SHORT).show()
+                }
+                if( it?.transfer?.id == null)
+                {
+                    Toast.makeText(requireContext(), "Try Again", Toast.LENGTH_SHORT).show()
+                }
+
+            }
+
+
+        }
+
+
+        binding
 
         // Inflate the layout for this fragment
         return binding.root

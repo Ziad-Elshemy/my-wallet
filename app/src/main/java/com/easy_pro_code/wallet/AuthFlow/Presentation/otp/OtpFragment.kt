@@ -90,11 +90,25 @@ class OtpFragment : AuthenticationFragment() {
             Firebase.auth.signInWithCredential(credential).addOnCompleteListener {
                 if (it.isSuccessful) {
                     AuthUtils.manager.saveAuthToken(userData,phoneData.phoneNumber)
-                    Log.i("Phone", "TokenSaved")
-                    val homeIntent = Intent(requireContext(), HomeActivity::class.java)
-                    startActivity(homeIntent)
-                    requireActivity().finish()
-                } else {
+                    if(userData.status == 0)
+                    {
+                        findNavController().navigate(OtpFragmentDirections.actionOtpFragmentToRegisterationFragment())
+                    }
+                    else if (userData.status == 1)
+                    {
+                        val homeIntent = Intent(requireContext(), HomeActivity::class.java)
+                        startActivity(homeIntent)
+                        requireActivity().finish()
+                    }
+                    else if (userData.status == -1)
+                    {
+                        Toast.makeText(requireContext(), "Checking Your paper", Toast.LENGTH_SHORT).show()
+
+                    }
+
+
+                } else
+                {
                     Toast.makeText(requireContext(), "Enter Valid Code", Toast.LENGTH_LONG).show()
                 }
 
