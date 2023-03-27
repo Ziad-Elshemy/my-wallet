@@ -17,10 +17,10 @@ import androidx.activity.OnBackPressedCallback
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.easy_pro_code.wallet.AuthFragment.AuthenticationFragment
+import com.easy_pro_code.wallet.AuthFlow.AuthFragment.AuthenticationFragment
 import com.easy_pro_code.wallet.HomeFlow.Presentation.HomeActivity
 import com.easy_pro_code.wallet.R
-import com.easy_pro_code.wallet.data.model.remote_backend.UserData
+import com.easy_pro_code.wallet.data.model.remote_backend.LoginResponse
 import com.easy_pro_code.wallet.data.model.remote_firebase.AuthUtils
 import com.easy_pro_code.wallet.data.model.remote_firebase.FirebaseUtils
 import com.easy_pro_code.wallet.data.model.remote_firebase.PhoneVerification
@@ -36,7 +36,7 @@ import java.util.concurrent.TimeUnit
 class OtpFragment : AuthenticationFragment() {
 
     lateinit var binding:FragmentOtpBinding
-    private lateinit var userData: UserData
+    private lateinit var userData: LoginResponse
     private lateinit var phoneData: PhoneVerification
     lateinit var mVerificationId: String
     val otpFragmentArgs:OtpFragmentArgs by navArgs()

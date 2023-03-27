@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.easy_pro_code.wallet.AuthFlow.Presentation.model.LoginViewModel
 import com.easy_pro_code.wallet.AuthFlow.AuthFragment.AuthenticationFragment
 import com.easy_pro_code.wallet.R
+import com.easy_pro_code.wallet.data.model.remote_backend.LoginResponse
 import com.easy_pro_code.wallet.data.model.remote_firebase.FirebaseUtils
 import com.easy_pro_code.wallet.data.model.remote_firebase.PhoneVerification
 import com.easy_pro_code.wallet.databinding.FragmentLoginBinding
@@ -25,6 +26,8 @@ class LoginFragment : AuthenticationFragment() {
     lateinit var binding:FragmentLoginBinding
     private lateinit var loginViewModel:LoginViewModel
     private  var verificationId:String=""
+    private lateinit var userData: LoginResponse
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -121,11 +124,13 @@ class LoginFragment : AuthenticationFragment() {
         binding.btnLogin.visibility = View.GONE
         Log.i("Ziad: error" , "successState")
         //navigation
-        val action = LoginFragmentDirections.actionLoginFragmentToOtpFragment(verificationId)
+        val phoneData=PhoneVerification(verificationId,token,"+2"+binding.etPhoneNumber.text.toString())
+
+        val action = LoginFragmentDirections.actionLoginFragmentToOtpFragment(phoneData,userData  )
         //this must be passed on argument in nav_graph <<<<---------------------------------------
         FirebaseUtils.token=token
-        action.arguments.putParcelable("verification",
-            PhoneVerification(verificationId,token,"+2"+binding.etPhoneNumber.text.toString()))
+//        action.arguments.putParcelable("verification",
+//            PhoneVerification(verificationId,token,"+2"+binding.etPhoneNumber.text.toString()))
         findNavController().navigate(action)
 
     }
