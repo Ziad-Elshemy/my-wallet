@@ -2,6 +2,7 @@ package com.easy_pro_code.wallet.data.api.api_manager
 
 
 import com.easy_pro_code.wallet.data.api.web_services.AuthenticationWebService
+import com.easy_pro_code.wallet.data.api.web_services.ShowBalanceWebService
 import com.easy_pro_code.wallet.data.api.web_services.DepositWebService
 import com.easy_pro_code.wallet.data.api.web_services.NationalInfoWebService
 import com.easy_pro_code.wallet.data.api.web_services.TransactionsWebServices
@@ -41,6 +42,9 @@ class ApiManager {
 
         fun getAuthenticationApi(): AuthenticationWebService {
             return getInstance().create(AuthenticationWebService::class.java)
+        }
+        fun getBalanceData():ShowBalanceWebService{
+            return getInstance().create(ShowBalanceWebService::class.java)
         }
 
         fun getDepositApi(): DepositWebService {
