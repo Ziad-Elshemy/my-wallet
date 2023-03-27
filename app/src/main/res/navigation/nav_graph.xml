@@ -16,6 +16,9 @@
         <action
             android:id="@+id/action_loginFragment_to_otpFragment"
             app:destination="@id/otpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_successFullRegisterationFragment"
+            app:destination="@id/successFullRegisterationFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -25,9 +28,6 @@
         <action
             android:id="@+id/action_signUpFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
-        <action
-            android:id="@+id/action_signUpFragment_to_otpFragment"
-            app:destination="@id/otpFragment" />
     </fragment>
     <fragment
         android:id="@+id/otpFragment"

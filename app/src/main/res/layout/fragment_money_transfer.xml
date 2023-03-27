@@ -170,6 +170,7 @@
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="60dp"
         android:paddingHorizontal="40dp"
+        android:layout_marginBottom="50dp"
         app:cornerRadius="10dp"
         android:paddingVertical="5dp"
         android:text="@string/transfer_now"
@@ -181,57 +182,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_home_page"
-        android:layout_marginBottom="30dp"
-
-        app:layout_constraintVertical_bias="0.294"
-        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_home_page"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:paddingHorizontal="40dp"
-        app:cornerRadius="10dp"
-        android:paddingVertical="5dp"
-        android:text="@string/home_page"
-        android:backgroundTint="@color/hint_text_color"
-        android:elevation="20dp"
-        android:textAllCaps="false"
-        android:textColor="@color/text_button_color"
-        android:textSize="16sp"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/regular"
         app:layout_constraintVertical_bias="0.294"
         tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_menu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="30dp"
-        android:paddingHorizontal="40dp"
-        app:cornerRadius="10dp"
-        android:paddingVertical="5dp"
-        android:text="@string/menu"
-        android:backgroundTint="@color/button_dark_color"
-        android:textAllCaps="false"
-        android:textColor="@color/text_button_color"
-        android:textSize="16sp"
-        android:fontFamily="@font/regular"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="20dp"
-
-        app:layout_constraintVertical_bias="0.294"
-        tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

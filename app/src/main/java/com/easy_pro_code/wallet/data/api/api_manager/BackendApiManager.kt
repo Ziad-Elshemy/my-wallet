@@ -19,7 +19,7 @@ class ApiManager {
             .build()
 
 
-        private const val BACKEND_URL = "http://207.180.239.207:8090/api/"
+        private const val BACKEND_URL = "http://207.180.239.207:8000/api/"
         private lateinit var retrofit: Retrofit
         private fun getInstance(): Retrofit {
             synchronized(this) {
