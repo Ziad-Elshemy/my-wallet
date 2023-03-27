@@ -145,10 +145,11 @@
                 android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.54"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/et_password"
-                app:layout_constraintVertical_bias="0.294" />
+                app:layout_constraintTop_toBottomOf="@id/signUp_btn"
+                app:layout_constraintVertical_bias="0.294"
+                android:layout_marginTop="10dp"
+                />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

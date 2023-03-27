@@ -1,4 +1,4 @@
-package com.easy_pro_code.wallet.AuthFragment
+package com.easy_pro_code.wallet.AuthFlow.AuthFragment
 
 import android.os.Bundle
 import android.util.Log

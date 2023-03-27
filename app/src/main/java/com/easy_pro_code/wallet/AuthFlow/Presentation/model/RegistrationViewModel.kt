@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.easy_pro_code.wallet.data.api.api_manager.ApiManager
 import com.easy_pro_code.wallet.data.api.web_services.AuthenticationWebService
+import com.easy_pro_code.wallet.data.model.remote_backend.LoginResponse
 import com.easy_pro_code.wallet.data.model.remote_backend.SignUp
 import com.easy_pro_code.wallet.data.model.remote_backend.SignUpRequest
-import com.easy_pro_code.wallet.data.model.remote_backend.UserData
 import com.easy_pro_code.wallet.data.model.remote_firebase.AuthUtils
 import retrofit2.HttpException
 import kotlinx.coroutines.launch
@@ -46,7 +46,7 @@ class RegistrationViewModel : ViewModel() {
         }
     }
 
-    fun onSucessfulsignIn(user: UserData, phoneNumber: String)
+    fun onSucessfulsignIn(user: LoginResponse, phoneNumber: String)
     {
         AuthUtils.manager.saveAuthToken(user,phoneNumber)
     }

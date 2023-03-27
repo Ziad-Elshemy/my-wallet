@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.easy_pro_code.wallet.data.api.api_manager.ApiManager
 import com.easy_pro_code.wallet.data.api.web_services.AuthenticationWebService
-import com.easy_pro_code.wallet.data.model.remote_backend.SignInRequest
-import com.easy_pro_code.wallet.data.model.remote_backend.UserData
+import com.easy_pro_code.wallet.data.model.remote_backend.LoginRequest
+import com.easy_pro_code.wallet.data.model.remote_backend.LoginResponse
 import com.easy_pro_code.wallet.data.model.remote_firebase.AuthUtils
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -17,31 +17,30 @@ import retrofit2.HttpException
 
 class LoginViewModel : ViewModel(){
 
-    private val _userLiveData = MutableLiveData<UserData?>()
-    val userLiveData: LiveData<UserData?>
+
+    private val _userLiveData = MutableLiveData<LoginResponse?>()
+    val userLiveData: LiveData<LoginResponse?>
         get() = _userLiveData
     private val authenticationWebService: AuthenticationWebService = ApiManager.getAuthenticationApi()
 
     //sessionManager
-
     val sessionManager = AuthUtils.manager
 
-    fun autoSignIn(): UserData {
+    fun autoSignIn(): LoginResponse {
         return  sessionManager.fetchData()
     }
-    fun onSucessfulsignIn(user: UserData,phoneNumber: String)
+    fun onSucessfulsignIn(user: LoginResponse,phoneNumber: String)
     {
         sessionManager.saveAuthToken(user,phoneNumber)
     }
 
 
-    fun logIn(phoneNumber:String){
+    fun logIn(phoneNumber:String , password:String){
         viewModelScope.launch {
-
             try {
-                val userRequest= SignInRequest(phoneNumber)
+                val userRequest= LoginRequest(phoneNumber,password)
 //                Log.i("Ziad: error" , "try loginViewModel ${userRequest.toString()}")
-                _userLiveData.value=authenticationWebService.signIn(userRequest)
+                _userLiveData.value=authenticationWebService.loginIn(userRequest)
 //                Log.i("Ziad: error" , _userLiveData.value.toString())
             }catch (t:Throwable){
                 when(t){
@@ -49,16 +48,14 @@ class LoginViewModel : ViewModel(){
                         when (t.code())
                         {
                             400 -> {
-//                                val response=UserData(message = "User Not found.")
-//                                _userLiveData.value=response
+                                val response=LoginResponse(message = "User Not found.")
+                                _userLiveData.value=response
                                 Log.i("Ziad: error" , "400")
                             }
                             else -> {
-//                                val response = UserData(message = "something went wrong")
-//                                _userLiveData.value = response
-
+                                val response = LoginResponse(message = "something went wrong")
+                                _userLiveData.value = response
                                 Log.i("Ziad: error" , "Something went Wrong")
-
                             }
                         }
 

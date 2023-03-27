@@ -3,17 +3,15 @@ package com.easy_pro_code.wallet.AuthFlow.Presentation.Login
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.easy_pro_code.wallet.AuthFlow.Presentation.model.LoginViewModel
-import com.easy_pro_code.wallet.AuthFragment.AuthenticationFragment
+import com.easy_pro_code.wallet.AuthFlow.AuthFragment.AuthenticationFragment
 import com.easy_pro_code.wallet.R
 import com.easy_pro_code.wallet.data.model.remote_firebase.FirebaseUtils
 import com.easy_pro_code.wallet.data.model.remote_firebase.PhoneVerification
@@ -22,27 +20,21 @@ import com.google.firebase.auth.PhoneAuthOptions
 import com.google.firebase.auth.PhoneAuthProvider
 import java.util.concurrent.TimeUnit
 
-
 class LoginFragment : AuthenticationFragment() {
 
     lateinit var binding:FragmentLoginBinding
-
     private lateinit var loginViewModel:LoginViewModel
+    private  var verificationId:String=""
 
-
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        loginViewModel =ViewModelProvider(this).get(LoginViewModel::class.java)
-//
-//    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        binding.lifecycleOwner=viewLifecycleOwner
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        loginViewModel =ViewModelProvider(this).get(LoginViewModel::class.java)
 
     }
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.lifecycleOwner=viewLifecycleOwner
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -51,19 +43,9 @@ class LoginFragment : AuthenticationFragment() {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
 
-        binding.signUpBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
-        }
-
-        binding.btnLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_otpFragment)
-        }
-
         startState()
         initViews()
-
-
-
+        subscribeToLiveData()
 
         return binding.root
     }
@@ -75,20 +57,16 @@ class LoginFragment : AuthenticationFragment() {
                     response->
                 binding.progressBarLoadingPhoneAuth.visibility = View.GONE
                 binding.btnLogin.visibility = View.GONE
-//                Log.e("Ziad Response",binding.etPhoneNumber.text.toString())
-                if (response.message.equals("user not found")){
+                Log.e("Ziad Response",binding.etPhoneNumber.text.toString())
+                if (response.message.equals("you are not a user")){
                     Toast.makeText(requireContext(), "please sign up first", Toast.LENGTH_SHORT).show()
                     loginViewModel.clearLiveData()
-
                     findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
-                }else if(response.message.equals("something went wrong")){
+                }else if(response.message.equals("Invalid user")){
                     Toast.makeText(requireContext(), "something went wrong", Toast.LENGTH_SHORT).show()
                 } else{
                     sendPhoneNumber(callbacks)
-                    loginViewModel.onSucessfulsignIn(
-                        response,
-                        binding.etPhoneNumber.text.toString()
-                    )
+                    loginViewModel.onSucessfulsignIn(response, binding.etPhoneNumber.text.toString())
                 }
             }
 
@@ -106,17 +84,19 @@ class LoginFragment : AuthenticationFragment() {
     private fun checkPhoneNumber() {
 
         val phoneNumber = binding.etPhoneNumber.text
-        if (phoneNumber.isBlank() || phoneNumber.isEmpty() || !TextUtils.isDigitsOnly(
-                phoneNumber
-            ) || phoneNumber.length != 11
-        ) {
+        val password = binding.etPassword.text
+        if (phoneNumber.isBlank() || phoneNumber.isEmpty() || !TextUtils.isDigitsOnly(phoneNumber) || phoneNumber.length != 11) {
 
             Toast.makeText(requireContext(), "Enter Valid Number ${phoneNumber.length}", Toast.LENGTH_LONG).show()
-        } else {
+        }
+        else if (password.isBlank() || password.isEmpty()){
+            Toast.makeText(requireContext(), "Enter Password", Toast.LENGTH_LONG).show()
+        }
+        else {
             //Toast.makeText(requireContext(), "Success", Toast.LENGTH_LONG).show()
             loadingState()
             Log.i("Ziad: error" , "loginFragment ${phoneNumber.toString()}")
-            loginViewModel.logIn(phoneNumber.toString())
+            loginViewModel.logIn(phoneNumber.toString(),password.toString())
         }
     }
 
@@ -139,16 +119,14 @@ class LoginFragment : AuthenticationFragment() {
     override fun successState(verificationId: String , token: PhoneAuthProvider.ForceResendingToken) {
         binding.progressBarLoadingPhoneAuth.visibility = View.GONE
         binding.btnLogin.visibility = View.GONE
-
         Log.i("Ziad: error" , "successState")
-
         //navigation
         val action = LoginFragmentDirections.actionLoginFragmentToOtpFragment(verificationId)
         //this must be passed on argument in nav_graph <<<<---------------------------------------
         FirebaseUtils.token=token
         action.arguments.putParcelable("verification",
-            PhoneVerification(verificationId,token,"+2"+binding.btnLogin.text.toString())
-        )
+            PhoneVerification(verificationId,token,"+2"+binding.etPhoneNumber.text.toString()))
+        findNavController().navigate(action)
 
     }
     override fun errorState() {

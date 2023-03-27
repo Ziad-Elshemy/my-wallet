@@ -15,10 +15,8 @@ class SessionManager (context: Context) {
     companion object {
         const val USER_TOKEN = "user_token"
         const val USER_NAME = "user_name"
-        const val ROLE = "role"
         const val PHONE = "phone"
         const val ID = "id"
-        const val EMAIL = "email"
         const val EXPIRE_DATE="expire"
 
 
@@ -31,17 +29,15 @@ class SessionManager (context: Context) {
         }
     }
 
-    fun saveAuthToken(user: UserData, phone:String) {
+    fun saveAuthToken(user: LoginResponse, phone:String) {
         val editor = prefsobj.edit()
       //  editor.putString(USER_TOKEN, user.accessToken)
       //  editor.putString(USER_NAME,user.username)
        // editor.putStringSet(ROLE, user.roles?.toSet())
-        editor.putString(EMAIL, user.email)
+        editor.putString(USER_NAME, user.userName)
         editor.putString(PHONE, phone)
         user.id?.let { editor.putString(ID, it) }
-        editor.putString(
-            EXPIRE_DATE,
-            LocalDateTime.now(ZoneId.of("UTC")).plusDays(1L).toString()
+        editor.putString(EXPIRE_DATE, LocalDateTime.now(ZoneId.of("UTC")).plusDays(1L).toString()
         )
         editor.apply()
     }
@@ -74,11 +70,9 @@ class SessionManager (context: Context) {
     fun clearAppState() {
         prefsObjForAppState.edit().clear().apply()
     }
-    fun fetchData(): UserData {
-        return UserData(
+    fun fetchData(): LoginResponse {
+        return LoginResponse(
             token = prefsobj.getString(USER_TOKEN, null),
-          // roles =prefsobj.getStringSet(ROLE, null)?.toList(),
-            email =prefsobj.getString(EMAIL, null),
             id = prefsobj.getString(ID, null),
             userName = prefsobj.getString(USER_NAME,null)
         )
