@@ -13,9 +13,9 @@ class SessionManager (context: Context) {
     private var prefsObjForAppState: SharedPreferences = context.getSharedPreferences("app_Stack_shared_pref", Context.MODE_PRIVATE)!!
 
     companion object {
-        const val USER_TOKEN = "user_token"
-        const val USER_NAME = "user_name"
-        const val PHONE = "phone"
+        const val USER_TOKEN = "Token"
+        const val USER_NAME = "userName"
+        const val PHONE = "Phone"
         const val ID = "id"
         const val EXPIRE_DATE="expire"
 
@@ -29,13 +29,18 @@ class SessionManager (context: Context) {
         }
     }
 
+//    fun savePhone(phone:String){
+//        val editor = prefsobj.edit()
+//        editor.putString(PHONE,user.phone)
+//    }
     fun saveAuthToken(user: LoginResponse, phone:String) {
         val editor = prefsobj.edit()
       //  editor.putString(USER_TOKEN, user.accessToken)
       //  editor.putString(USER_NAME,user.username)
        // editor.putStringSet(ROLE, user.roles?.toSet())
         editor.putString(USER_NAME, user.userName)
-        editor.putString(PHONE, phone)
+        editor.putString(PHONE,user.phone)
+        editor.putString(USER_TOKEN ,user.token)
         user.id?.let { editor.putString(ID, it) }
         editor.putString(EXPIRE_DATE, LocalDateTime.now(ZoneId.of("UTC")).plusDays(1L).toString()
         )
@@ -74,7 +79,8 @@ class SessionManager (context: Context) {
         return LoginResponse(
             token = prefsobj.getString(USER_TOKEN, null),
             id = prefsobj.getString(ID, null),
-            userName = prefsobj.getString(USER_NAME,null)
+            userName = prefsobj.getString(USER_NAME,null),
+            phone = prefsobj.getString(PHONE,null)
         )
     }
 

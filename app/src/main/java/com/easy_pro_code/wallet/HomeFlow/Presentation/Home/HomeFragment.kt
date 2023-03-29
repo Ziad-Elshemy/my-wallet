@@ -37,7 +37,7 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_moneyTransferFragment)
         }
 
-        binding.userName.setText(AuthUtils.manager.fetchData().userName)
+        binding.userName.setText("Hi, "+AuthUtils.manager.fetchData().userName)
         binding.userName.isEnabled = false
 
         binding.price.setOnClickListener {

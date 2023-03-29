@@ -40,16 +40,22 @@ class LoginFragment : AuthenticationFragment() {
         binding.lifecycleOwner=viewLifecycleOwner
     }
 
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
-
         startState()
         initViews()
         subscribeToLiveData()
+
+        if (AuthUtils.manager.getToken() !=null){
+            binding.etPhoneNumber.setText(AuthUtils.manager.fetchData().phone.toString())
+        }
+
 
         return binding.root
     }
@@ -80,7 +86,9 @@ class LoginFragment : AuthenticationFragment() {
                     sendPhoneNumber(callbacks)
                     loginViewModel.onSucessfulsignIn(response, binding.etPhoneNumber.text.toString())
                     userData = response
-
+                    Log.i("token" , AuthUtils.manager.getToken().toString())
+                    Log.i("phone" , AuthUtils.manager.fetchData().phone.toString())
+                    Log.i("username" , AuthUtils.manager.fetchData().userName.toString())
                 }
             }
 
@@ -100,7 +108,7 @@ class LoginFragment : AuthenticationFragment() {
     private fun checkPhoneNumber() {
 
         val phoneNumber = binding.etPhoneNumber.text
-        val password = binding.etPassword.text
+        val password = binding.etPasswordInput.text.toString()
         if (phoneNumber.isBlank() || phoneNumber.isEmpty() || !TextUtils.isDigitsOnly(phoneNumber)
             || phoneNumber.length != 11) {
 

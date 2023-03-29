@@ -44,7 +44,7 @@ class TellerDepositFragment : Fragment() {
           viewBinding.mobileNumberEt.error="enter valid phone number"
         }else if (viewBinding.amountEt.text.toString().toInt()<5){
             viewBinding.amountEt.error="minimum deposit is 5"
-        }else if (viewBinding.passwordEt.text.length<6){
+        }else if (viewBinding.passwordEtInput.text!!.length<6){
             viewBinding.passwordEt.error="invalid password"
         }else{
 //            tellerDepositViewmodel.deposit()

@@ -84,29 +84,41 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/et_userName" />
 
-            <EditText
-                android:id="@+id/et_password"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="50dp"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/text_view_radius"
-                android:drawableStart="@drawable/baseline_lock_person_24"
-                android:drawableEnd="@drawable/baseline_visibility_24"
-                android:fontFamily="@font/regular"
-                android:hint="@string/password"
-                android:minHeight="48dp"
-                android:paddingHorizontal="15dp"
-                android:paddingVertical="10dp"
-                android:textAlignment="center"
-                android:inputType="textPassword"
-                android:textAllCaps="false"
-                android:textColor="@color/text_color"
-                android:textColorHint="@color/hint_text_color"
-                android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/et_phoneNumber" />
+                app:layout_constraintTop_toBottomOf="@+id/et_phoneNumber"
+                android:id="@+id/et_password"
+                app:passwordToggleEnabled="true"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="30dp"
+                app:boxStrokeWidth="0dp"
+                app:boxStrokeWidthFocused="0dp"
+                >
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_passwordInput"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/regular"
+                    android:hint="@string/enter_your_password"
+                    android:minHeight="48dp"
+                    android:maxLines="1"
+                    android:inputType="textPassword"
+                    android:background="@drawable/text_view_radius"
+                    android:paddingHorizontal="15dp"
+                    android:drawableStart="@drawable/baseline_lock_person_24"
+                    android:paddingVertical="10dp"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_color"
+                    android:textColorHint="@color/hint_text_color"
+                    android:textSize="16sp"
+
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn_signup"

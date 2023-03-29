@@ -77,7 +77,7 @@ class MoneyTransferFragment : Fragment() {
                 receiver =  binding.mobileNumberEt.text.toString(),
                 cashTransfer = binding.amountEt.text.toString().toInt(),
                 userId = AuthUtils.manager.fetchData().id.toString(),
-                password = binding.passwordEt.text.toString()
+                password = binding.passwordEtInput.text.toString()
             )
 
             transferViewModel.LiveData.observe(viewLifecycleOwner)

@@ -69,8 +69,8 @@ class SignUpFragment : Fragment() {
     private fun onRegisterPressed() {
         val phoneNumber = binding.etPhoneNumber
         val userName = binding.etUserName
-        val password = binding.etPassword
-        if(userName.text.isNotEmpty() && phoneNumber.text.isNotEmpty() && password.text.isNotEmpty()){
+        val password = binding.etPasswordInput
+        if(userName.text.isNotEmpty() && phoneNumber.text.isNotEmpty() && password.text!!.isNotEmpty()){
             loadingState()
             signUpViewModel.signUp(
 
@@ -87,7 +87,7 @@ class SignUpFragment : Fragment() {
             if(phoneNumber.text.isEmpty()){
                 phoneNumber.error = "phone number can't be empty"
             }
-            if(password.text.isEmpty()){
+            if(password.text!!.isEmpty()){
                 password.error = "password can't be empty"
             }
         }
@@ -141,7 +141,7 @@ class SignUpFragment : Fragment() {
         var lastName: String = ""
         userName = binding.etUserName
         phoneNumber = binding.etPhoneNumber
-        password = binding.etPassword
+        password = binding.etPasswordInput
 
 //        gender = binding.dropdownMenuGender
         binding.btnLogin.setOnClickListener {
@@ -190,7 +190,7 @@ class SignUpFragment : Fragment() {
     private fun verify(){
         userName = binding.etUserName
         phoneNumber = binding.etPhoneNumber
-        password = binding.etPassword
+        password = binding.etPasswordInput
 
         val name = userName.text.toString().trim()
         val phone = phoneNumber.text.toString().trim()
