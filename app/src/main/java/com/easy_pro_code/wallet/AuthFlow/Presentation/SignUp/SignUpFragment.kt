@@ -14,6 +14,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.easy_pro_code.uber_driver.AuthFlow.ViewModel.SignUpViewModel
 import com.easy_pro_code.wallet.AuthFlow.Presentation.model.RegistrationViewModel
 import com.easy_pro_code.wallet.R
 import com.easy_pro_code.wallet.data.model.remote_firebase.FirebaseUtils
@@ -31,15 +32,12 @@ class SignUpFragment : Fragment() {
 
     lateinit var userName: EditText
     lateinit var phoneNumber: EditText
-    lateinit var signUpBtn: MaterialButton
     lateinit var password: EditText
-
-    lateinit var viewModel: RegistrationViewModel
+    lateinit var signUpViewModel: SignUpViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        viewModel =ViewModelProvider(this).get(RegistrationViewModel::class.java)
+        signUpViewModel =ViewModelProvider(this).get(SignUpViewModel::class.java)
     }
 
 
@@ -50,20 +48,50 @@ class SignUpFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_sign_up,container,false)
 
-        binding.btnLogin.setOnClickListener {
-            findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
-        }
-
-        binding.signUpBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_signUpFragment_to_otpFragment)
-        }
-
-
         initViews()
+
         subscribeLiveData()
 
+//        binding.btnLogin.setOnClickListener {
+//            val action = SignUpFragmentDirections.actionSignUpFragmentToLoginFragment()
+//            findNavController().navigate(action)
+//        }
+
+        binding.btnSignup.setOnClickListener {
+            Toast.makeText(requireContext(),"successfully",Toast.LENGTH_SHORT).show()
+            onRegisterPressed()
+//            val action = SignUpFragmentDirections.actionSignUpFragmentToLoginFragment()
+//            findNavController().navigate(action)
+        }
 
         return binding.root
+    }
+
+    private fun onRegisterPressed() {
+        val phoneNumber = binding.etPhoneNumber
+        val userName = binding.etUserName
+        val password = binding.etPassword
+        if(userName.text.isNotEmpty() && phoneNumber.text.isNotEmpty() && password.text.isNotEmpty()){
+            loadingState()
+            signUpViewModel.signUp(
+
+                phoneNumber.text.toString(),
+
+                userName.text.toString(),
+
+                password.text.toString()
+            )
+        } else {
+            if(userName.text.isEmpty()){
+                userName.error = "user name can't be empty"
+            }
+            if(phoneNumber.text.isEmpty()){
+                phoneNumber.error = "phone number can't be empty"
+            }
+            if(password.text.isEmpty()){
+                password.error = "password can't be empty"
+            }
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -83,7 +111,7 @@ class SignUpFragment : Fragment() {
     }
 
     private fun subscribeLiveData() {
-        viewModel.userLiveData.observe(viewLifecycleOwner) {
+        signUpViewModel.userLiveData.observe(viewLifecycleOwner) {
             it?.let { signUpResponse ->
                 if (signUpResponse.message.equals("Failed! Phone is already in use!")) {
                     Toast.makeText(
@@ -115,7 +143,7 @@ class SignUpFragment : Fragment() {
         password = binding.etPassword
 
 //        gender = binding.dropdownMenuGender
-        binding.signUpBtn.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             findNavController().navigateUp()
         }
 //        signUpBtn.setOnClickListener {
@@ -146,7 +174,7 @@ class SignUpFragment : Fragment() {
     }
 
     private fun loadingState() {
-        binding.signUpBtn.visibility = View.GONE
+        binding.btnSignup.visibility = View.GONE
         binding.progressIndicator.visibility = View.VISIBLE
 
     }
@@ -175,11 +203,9 @@ class SignUpFragment : Fragment() {
             password.error = "Please Enter Vaild Email"
             return
         } else {
-            viewModel.signUp(
-                name,
+            signUpViewModel.signUp(
                 phone,
-                pass,
-                binding.etPhoneNumber.text.toString(),
+                name,
                 pass
             )
 
