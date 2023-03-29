@@ -1,6 +1,5 @@
 package com.easy_pro_code.wallet.HomeFlow.Presentation.Menu
 
-import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle

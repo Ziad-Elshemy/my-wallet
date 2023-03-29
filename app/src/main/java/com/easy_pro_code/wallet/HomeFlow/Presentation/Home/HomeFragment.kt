@@ -36,6 +36,10 @@ class HomeFragment : Fragment() {
         binding.moneyTransferIcon.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_moneyTransferFragment)
         }
+
+        binding.userName.setText(AuthUtils.manager.fetchData().userName)
+        binding.userName.isEnabled = false
+
         binding.price.setOnClickListener {
 
             val view = layoutInflater.inflate(R.layout.dialog_balance ,null)

@@ -25,5 +25,8 @@ data class LoginResponse(
 	@field:SerializedName("Balance")
 	val balance: Int? = null,
 	@field:SerializedName("message")
-	val message: String? = null
+	val message: String? = null,
+
+	@field:SerializedName("error")
+	val error: String? = null
 ) : Parcelable

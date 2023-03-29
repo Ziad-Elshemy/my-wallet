@@ -53,6 +53,12 @@ class LoginViewModel : ViewModel(){
                                 _userLiveData.value=response
                                 Log.i("Ziad: error" , "400")
                             }
+                            404 ->
+                            {
+                                val response=LoginResponse(error = "Invalid user")
+                                _userLiveData.value=response
+                                Log.i("Ziad: error" , "404")
+                            }
                             else -> {
                                 val response = LoginResponse(message = "something went wrong")
                                 _userLiveData.value = response

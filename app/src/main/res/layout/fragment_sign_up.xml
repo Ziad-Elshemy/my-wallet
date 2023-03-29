@@ -99,6 +99,7 @@
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="10dp"
                 android:textAlignment="center"
+                android:inputType="textPassword"
                 android:textAllCaps="false"
                 android:textColor="@color/text_color"
                 android:textColorHint="@color/hint_text_color"

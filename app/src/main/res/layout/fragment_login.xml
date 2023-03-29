@@ -75,6 +75,7 @@
                 android:fontFamily="@font/regular"
                 android:hint="@string/enter_your_password"
                 android:minHeight="48dp"
+                android:inputType="textPassword"
                 android:maxLines="1"
                 android:paddingHorizontal="15dp"
                 android:paddingVertical="10dp"
