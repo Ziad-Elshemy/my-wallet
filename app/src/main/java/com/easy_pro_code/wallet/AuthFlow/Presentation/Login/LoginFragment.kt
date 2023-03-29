@@ -14,6 +14,7 @@ import com.easy_pro_code.wallet.AuthFlow.Presentation.model.LoginViewModel
 import com.easy_pro_code.wallet.AuthFlow.AuthFragment.AuthenticationFragment
 import com.easy_pro_code.wallet.R
 import com.easy_pro_code.wallet.data.model.remote_backend.LoginResponse
+import com.easy_pro_code.wallet.data.model.remote_firebase.AuthUtils
 import com.easy_pro_code.wallet.data.model.remote_firebase.FirebaseUtils
 import com.easy_pro_code.wallet.data.model.remote_firebase.PhoneVerification
 import com.easy_pro_code.wallet.databinding.FragmentLoginBinding
@@ -47,9 +48,7 @@ class LoginFragment : AuthenticationFragment() {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_login,container,false)
 
         startState()
-
         initViews()
-
         subscribeToLiveData()
 
         return binding.root
@@ -66,10 +65,17 @@ class LoginFragment : AuthenticationFragment() {
                 Log.e("Ziad Response",binding.etPhoneNumber.text.toString())
 
                 if (response.message.equals("you are not a user")){
-                    Toast.makeText(requireContext(), "please sign up first", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "something wrong", Toast.LENGTH_SHORT).show()
+                    loginViewModel.clearLiveData()
+                    binding.btnLogin.visibility=View.VISIBLE
+                    //findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
+                }
+                else if(response.error.equals("Invalid user")){
+                    Toast.makeText(requireContext(), "Invalid user ,please sign up first", Toast.LENGTH_SHORT).show()
                     loginViewModel.clearLiveData()
                     findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
-                } else{
+                }
+                else{
                     /////////user found ---> Go to Otp Page
                     sendPhoneNumber(callbacks)
                     loginViewModel.onSucessfulsignIn(response, binding.etPhoneNumber.text.toString())
@@ -82,7 +88,9 @@ class LoginFragment : AuthenticationFragment() {
     }
 
     private fun initViews(){
-        binding.signUpBtn.setOnClickListener { findNavController().navigate(R.id.action_loginFragment_to_signUpFragment) }
+        binding.signUpBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)
+        }
 
         binding.btnLogin.setOnClickListener {
             checkPhoneNumber()
@@ -93,7 +101,8 @@ class LoginFragment : AuthenticationFragment() {
 
         val phoneNumber = binding.etPhoneNumber.text
         val password = binding.etPassword.text
-        if (phoneNumber.isBlank() || phoneNumber.isEmpty() || !TextUtils.isDigitsOnly(phoneNumber) || phoneNumber.length != 11) {
+        if (phoneNumber.isBlank() || phoneNumber.isEmpty() || !TextUtils.isDigitsOnly(phoneNumber)
+            || phoneNumber.length != 11) {
 
             Toast.makeText(requireContext(), "Enter Valid Number ${phoneNumber.length}", Toast.LENGTH_LONG).show()
         }
@@ -127,12 +136,11 @@ class LoginFragment : AuthenticationFragment() {
     override fun successState(verificationId: String , token: PhoneAuthProvider.ForceResendingToken) {
         binding.progressBarLoadingPhoneAuth.visibility = View.GONE
         binding.btnLogin.visibility = View.GONE
-
         Log.i("Ziad: error" , "successState")
         //navigation
         val phoneData=PhoneVerification(verificationId,token,"+2"+binding.etPhoneNumber.text.toString())
 
-        val action = LoginFragmentDirections.actionLoginFragmentToOtpFragment(phoneData,userData  )
+        val action = LoginFragmentDirections.actionLoginFragmentToOtpFragment(phoneData,userData)
         //this must be passed on argument in nav_graph <<<<---------------------------------------
         FirebaseUtils.token=token
 //        action.arguments.putParcelable("verification",
