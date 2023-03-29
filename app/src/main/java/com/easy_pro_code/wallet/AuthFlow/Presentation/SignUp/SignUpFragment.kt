@@ -58,7 +58,6 @@ class SignUpFragment : Fragment() {
 //        }
 
         binding.btnSignup.setOnClickListener {
-            Toast.makeText(requireContext(),"successfully",Toast.LENGTH_SHORT).show()
             onRegisterPressed()
 //            val action = SignUpFragmentDirections.actionSignUpFragmentToLoginFragment()
 //            findNavController().navigate(action)
@@ -113,22 +112,24 @@ class SignUpFragment : Fragment() {
     private fun subscribeLiveData() {
         signUpViewModel.userLiveData.observe(viewLifecycleOwner) {
             it?.let { signUpResponse ->
-                if (signUpResponse.message.equals("Failed! Phone is already in use!")) {
+                if (signUpResponse.message.equals("Failed! User is already in use!")) {
                     Toast.makeText(
                         requireContext(),
-                        "Failed! Phone is already in use!",
+                        "Failed! User is already in use!",
                         Toast.LENGTH_SHORT
                     ).show()
+                    stopLoadingState()
                 } else if (signUpResponse.message.equals("something went wrong")) {
                     Toast.makeText(requireContext(), "something went wrong", Toast.LENGTH_SHORT)
                         .show()
-                } else if (signUpResponse.message.equals("Connection failed,please try again")) {
-                    Toast.makeText(
-                        requireContext(),
-                        "Connection failed,please try again",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                } else {
+                    stopLoadingState()
+                }
+                else if (signUpResponse.message.equals("Connection failed,please try again")) {
+                    Toast.makeText(requireContext(), "Connection failed,please try again", Toast.LENGTH_SHORT).show()
+                    stopLoadingState()
+                }
+                else {
+                    Toast.makeText(requireContext(),"successfully",Toast.LENGTH_SHORT).show()
                     findNavController().popBackStack()
                 }
             }
@@ -179,6 +180,12 @@ class SignUpFragment : Fragment() {
 
     }
 
+    private fun stopLoadingState() {
+        binding.btnSignup.visibility = View.VISIBLE
+        binding.progressIndicator.visibility = View.GONE
+
+    }
+
 
     private fun verify(){
         userName = binding.etUserName
@@ -213,21 +220,6 @@ class SignUpFragment : Fragment() {
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
