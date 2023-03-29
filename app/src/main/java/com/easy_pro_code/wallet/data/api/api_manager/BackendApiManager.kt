@@ -1,7 +1,7 @@
 package com.easy_pro_code.wallet.data.api.api_manager
 
 
-import com.easy_pro_code.wallet.data.api.web_services.AuthenticationWebService
+import com.easy_pro_code.wallet.data.api.web_services.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -37,6 +37,24 @@ class ApiManager {
 
         fun getAuthenticationApi(): AuthenticationWebService {
             return getInstance().create(AuthenticationWebService::class.java)
+        }
+        fun getBalanceData():ShowBalanceWebService{
+            return getInstance().create(ShowBalanceWebService::class.java)
+        }
+
+        fun getDepositApi(): DepositWebService {
+            return getInstance().create(DepositWebService::class.java)
+        }
+
+        fun getNationalIdApi():NationalInfoWebService{
+            return getInstance().create(NationalInfoWebService::class.java)
+        }
+
+        fun getTransactionHistory() : TransactionsWebServices{
+            return getInstance().create(TransactionsWebServices::class.java)
+        }
+        fun getTransferApi() : TransferBalanceWebService{
+            return getInstance().create(TransferBalanceWebService::class.java)
         }
 
     }

@@ -17,6 +17,8 @@
     <color name="input_shadow_color">#FAFAFA</color>
     <color name="input_shadow_radius_color">#DADADA</color>
     <color name="icon_color">#000000</color>
+    <color name="red">#D31515</color>
+
 
 
 </resources>
