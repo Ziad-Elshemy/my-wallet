@@ -51,6 +51,7 @@
                 android:background="@drawable/text_view_radius"
                 android:fontFamily="@font/regular"
                 android:hint="@string/national_id"
+                android:inputType="numberDecimal"
                 android:minHeight="48dp"
                 android:paddingHorizontal="20dp"
                 android:paddingVertical="10dp"

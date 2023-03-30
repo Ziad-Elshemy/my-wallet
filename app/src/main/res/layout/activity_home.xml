@@ -66,7 +66,7 @@
         app:layout_constraintVertical_bias="0.294"
         tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
-    <androidx.fragment.app.FragmentContainerView
+    <fragment
         android:id="@+id/fragmentContainerView"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
