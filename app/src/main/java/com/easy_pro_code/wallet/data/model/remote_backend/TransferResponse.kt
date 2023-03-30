@@ -8,7 +8,10 @@ import com.google.gson.annotations.SerializedName
 data class TransferResponse(
 
 	@field:SerializedName("Transfer")
-	val transfer: Transfer? = null
+	val transfer: Transfer? = null,
+
+	@field:SerializedName("Mss")
+	val message: String? = null
 ) : Parcelable
 
 @Parcelize

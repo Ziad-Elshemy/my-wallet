@@ -72,43 +72,18 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
 
-            <TextView
-                android:id="@+id/hide_balance_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/regular"
-                android:text="@string/hide_balance"
-                android:textColor="@color/text_color"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/user_name" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switchButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:thumbTint="@drawable/button_switch_color_selector"
-                android:trackTint="@color/button_primary_color"
-                app:layout_constraintBottom_toBottomOf="@+id/hide_balance_tv"
-                app:layout_constraintStart_toEndOf="@id/hide_balance_tv"
-                app:layout_constraintTop_toTopOf="@id/hide_balance_tv"
-                tools:ignore="UseSwitchCompatOrMaterialXml" />
-
             <androidx.cardview.widget.CardView
+                android:layout_margin="20dp"
                 android:id="@+id/my_wallet_card_view"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:layout_marginHorizontal="50dp"
-                android:layout_marginTop="20dp"
                 app:cardCornerRadius="20dp"
                 app:cardElevation="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/hide_balance_tv">
+                app:layout_constraintTop_toBottomOf="@+id/user_name">
 
                 <LinearLayout
                     android:layout_width="match_parent"
