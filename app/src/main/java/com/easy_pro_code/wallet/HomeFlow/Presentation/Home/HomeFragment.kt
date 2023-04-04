@@ -1,5 +1,6 @@
 package com.easy_pro_code.wallet.HomeFlow.Presentation.Home
 
+import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
 import android.util.Log
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.GetBalanceViewModel
@@ -26,18 +28,48 @@ class HomeFragment : Fragment() {
 
 
 
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentHomeBinding.inflate(layoutInflater)
+        binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false)
         userPhone = userPhone.replace("+2" , "")
         binding.moneyTransferIcon.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_moneyTransferFragment)
         }
 
-        binding.userName.setText("Hi, "+AuthUtils.manager.fetchData().userName)
+        binding.consDeposit.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_depositFragment)
+        }
+
+        binding.notificationImg.setOnClickListener {
+//            findNavController().navigate(R.id.action_homeFragment_to_notificationsFragment)
+            Toast.makeText(requireContext(),"Coming Soon",Toast.LENGTH_SHORT).show()
+        }
+
+        binding.profileImageCard.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_myProfileFragment)
+        }
+
+        binding.transactionTv.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_myTransactionFragment)
+        }
+
+        binding.withDrawCons.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_withDrawFragment)
+        }
+
+
+
+        binding.paymentsCons.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_paymentServicesFragment)
+        }
+
+
+
+
+
+        binding.userName.text = "Hi, "+AuthUtils.manager.fetchData().userName
         binding.userName.isEnabled = false
 
         binding.price.setOnClickListener {
@@ -66,7 +98,7 @@ class HomeFragment : Fragment() {
                         Toast.makeText(context, "retry, Invalid Password", Toast.LENGTH_SHORT).show()
                     }
                     else{
-                        binding.price.setText(it.balance.toString())
+                        binding.price.text = it.balance.toString()
                     }
 
                 }

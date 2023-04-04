@@ -5,6 +5,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     tools:context=".HomeFlow.Presentation.PaymentServices.PaymentServicesFragment">
 
     <ImageView
@@ -46,7 +47,6 @@
             android:layout_width="110dp"
             android:layout_height="120dp"
             app:cardCornerRadius="20dp"
-            app:cardElevation="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
@@ -89,7 +89,6 @@
             android:layout_height="120dp"
             android:layout_marginHorizontal="20dp"
             app:cardCornerRadius="20dp"
-            app:cardElevation="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/mobilr_internet_card_view">
 
@@ -146,7 +145,6 @@
             android:layout_width="110dp"
             android:layout_height="120dp"
             app:cardCornerRadius="20dp"
-            app:cardElevation="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -190,7 +188,6 @@
             android:layout_height="120dp"
             android:layout_marginHorizontal="20dp"
             app:cardCornerRadius="20dp"
-            app:cardElevation="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/water_card_view">
@@ -244,7 +241,6 @@
             android:layout_width="110dp"
             android:layout_height="120dp"
             app:cardCornerRadius="20dp"
-            app:cardElevation="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -287,7 +283,6 @@
             android:layout_height="120dp"
             android:layout_marginHorizontal="20dp"
             app:cardCornerRadius="20dp"
-            app:cardElevation="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/travel_card_view">
@@ -341,7 +336,6 @@
             android:layout_width="110dp"
             android:layout_height="120dp"
             app:cardCornerRadius="20dp"
-            app:cardElevation="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
