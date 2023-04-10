@@ -34,25 +34,27 @@
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="DEPOSIT"
+                android:text="@string/deposit"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:textStyle="bold"/>
+                android:fontFamily="@font/light"/>
 
             <TextView
                 android:id="@+id/from_or_to"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SERVICE CHARGE "
+                android:text="@string/service_charge"
                 android:textColor="@color/black"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:fontFamily="@font/light"/>
             <TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="27 Feb"
+                android:text="@string/_27_feb"
                 android:textColor="@color/black"
-                android:textSize="16sp"/>
+                android:textSize="14sp"
+                android:fontFamily="@font/light"/>
 
         </LinearLayout>
         <LinearLayout
@@ -69,19 +71,19 @@
                 android:id="@+id/trans_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3633.25YER"
+                android:text="@string/_3633_25yer"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-
-                android:textStyle="bold"/>
+                android:fontFamily="@font/light"/>
 
             <TextView
                 android:id="@+id/phone_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="30.00YER"
+                android:text="@string/_30_00yer"
                 android:textColor="@color/black"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:fontFamily="@font/light"/>
 
         </LinearLayout>
 

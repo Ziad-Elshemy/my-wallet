@@ -23,11 +23,11 @@
             android:id="@+id/msg_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_marginStart="20dp"
             android:maxLines="3"
-            android:text="Easily pay your bills through the wallet"
+            android:text="@string/easily_pay_your_bills_through_the_wallet"
             android:textColor="@color/black"
+            android:fontFamily="@font/regular"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/notify_imageView"
@@ -38,7 +38,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:text="15 Mar 2023"
+            android:text="@string/_15_mar_2023"
+            android:fontFamily="@font/light"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@id/notify_imageView" />
 

@@ -36,10 +36,10 @@
                     android:id="@+id/current_balance"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="My Balance"
+                    android:text="@string/my_balance"
+                    android:fontFamily="@font/regular"
                     android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp"  />
 
                 <TextView
                     android:id="@+id/price"
@@ -47,13 +47,17 @@
                     android:layout_height="wrap_content"
                     android:text="***************"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:textSize="16sp"
+                    android:fontFamily="@font/regular" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:text="Show balance" />
+                    android:background="@color/black"
+                    android:textColor="@color/white"
+                    android:paddingHorizontal="20dp"
+                    android:fontFamily="@font/regular"
+                    android:text="@string/show_balance" />
 
             </LinearLayout>
 
@@ -68,9 +72,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="25dp"
-            android:text="Enter amount"
+            android:text="@string/enter_amount"
             android:textColor="@color/black"
-            android:textSize="18sp"
+            android:textSize="16sp"
+            android:fontFamily="@font/regular"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/my_wallet_card_view" />
 
@@ -81,6 +86,8 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/regular"
             android:background="@drawable/text_view_radius"
             android:paddingHorizontal="20dp"
             app:layout_constraintStart_toStartOf="@id/amount_tv"
@@ -92,9 +99,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginTop="25dp"
-            android:text="Enter Password"
+            android:text="@string/enter_password"
+            android:textSize="16sp"
+            android:fontFamily="@font/regular"
             android:textColor="@color/black"
-            android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/amount_et" />
 
@@ -104,6 +112,8 @@
             android:id="@+id/password_et"
             app:passwordToggleEnabled="true"
             app:boxStrokeWidth="0dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/regular"
             app:boxStrokeWidthFocused="0dp"
             app:layout_constraintStart_toStartOf="@id/password_tv"
             app:layout_constraintTop_toBottomOf="@id/password_tv"
@@ -132,19 +142,20 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_confirm"
-            android:layout_width="300dp"
-            android:layout_height="60dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginHorizontal="50dp"
             android:layout_marginTop="60dp"
             android:paddingHorizontal="40dp"
             app:cornerRadius="10dp"
             android:paddingVertical="5dp"
-            android:text="Confirm"
+            android:textSize="16sp"
+            android:fontFamily="@font/regular"
+            android:text="@string/confirm"
             android:backgroundTint="@color/base_green"
             android:textAllCaps="false"
             android:textColor="@color/white"
             android:layout_marginBottom="50dp"
-            android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.54"
             app:layout_constraintStart_toStartOf="parent"

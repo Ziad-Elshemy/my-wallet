@@ -9,12 +9,13 @@
     android:background="@color/background_color">
 
     <EditText
-        android:hint="Enter Your Password"
+        android:hint="@string/enter_your_password"
         android:id="@+id/passwordET"
         android:textAlignment="center"
         android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/light"
         android:layout_margin="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +33,7 @@
         android:backgroundTint="@color/button_primary_color"
         android:fontFamily="@font/regular"
         android:padding="5dp"
-        android:text="Show Balance"
+        android:text="@string/show_balance"
         android:textAllCaps="false"
         android:textColor="@color/text_button_color"
         android:textSize="16sp"
@@ -54,10 +55,11 @@
         android:fontFamily="@font/regular"
         android:paddingHorizontal="40dp"
         android:paddingVertical="5dp"
-        android:text="cancel"
+        android:text="@string/cancel"
         android:textAllCaps="false"
         android:textColor="@color/text_button_color"
         android:textSize="16sp"
+
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

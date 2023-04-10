@@ -27,7 +27,7 @@
         android:cursorVisible="true"
         android:enabled="true"
         android:gravity="center"
-        android:hint="Enter otp code"
+        android:hint="@string/enter_otp_code"
         android:inputType="number"
         android:itemBackground="#65EAEAEA"
         android:padding="8dp"

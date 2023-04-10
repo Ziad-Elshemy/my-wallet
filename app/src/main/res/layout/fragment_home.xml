@@ -44,7 +44,7 @@
                 android:layout_marginStart="25dp"
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/regular"
-                android:text="Hi, Abdalla Ayash"
+                android:text="@string/hi_abdalla_ayash"
                 android:textColor="@color/text_color"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="@id/profile_image_card"
