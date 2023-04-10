@@ -58,9 +58,9 @@ class ApiManager {
             return getInstance().create(TransferBalanceWebService::class.java)
         }
 
-        fun getWithDrawApi() : WithDrawWebServices{
-            return getInstance().create(WithDrawWebServices::class.java)
-        }
+//        fun getWithDrawApi() : WithDrawWebServices{
+//            return getInstance().create(WithDrawWebServices::class.java)
+//        }
 
     }
 }

@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.core.view.isEmpty
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -52,15 +53,9 @@ class SignUpFragment : Fragment() {
 
         subscribeLiveData()
 
-//        binding.btnLogin.setOnClickListener {
-//            val action = SignUpFragmentDirections.actionSignUpFragmentToLoginFragment()
-//            findNavController().navigate(action)
-//        }
-
         binding.btnSignup.setOnClickListener {
             onRegisterPressed()
-//            val action = SignUpFragmentDirections.actionSignUpFragmentToLoginFragment()
-//            findNavController().navigate(action)
+
         }
 
         return binding.root
@@ -81,13 +76,13 @@ class SignUpFragment : Fragment() {
                 password.text.toString()
             )
         } else {
-            if(userName.text.isEmpty()){
+             if(userName.text.isEmpty()){
                 userName.error = "user name can't be empty"
             }
-            if(phoneNumber.text.isEmpty()){
+            else if(phoneNumber.text.isEmpty()){
                 phoneNumber.error = "phone number can't be empty"
             }
-            if(password.text!!.isEmpty()){
+            else if(password.text!!.isEmpty()){
                 password.error = "password can't be empty"
             }
         }
@@ -147,28 +142,20 @@ class SignUpFragment : Fragment() {
         binding.btnLogin.setOnClickListener {
             findNavController().navigateUp()
         }
-//        signUpBtn.setOnClickListener {
-//            val phoneNumber = binding.etPhoneNumber.text
-//            val password = binding.etPassword.text
-//
-//            if (phoneNumber.isBlank() || phoneNumber.isEmpty() || !TextUtils.isDigitsOnly(
-//                    phoneNumber
-//                ) || phoneNumber.length != 11
-//            ) {
-//                Toast.makeText(requireContext(), "Enter Valid Number", Toast.LENGTH_LONG).show()
-//
-//            } else if (password.isEmpty() || (!Pattern.matches(
-//                    "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%^&-+=()])(?=\\\\S+\$).{8,20}\$",
-//                    password
-//                )
-//                        )
-//            ) {
-//                Toast.makeText(requireContext(), "Enter Valid Email", Toast.LENGTH_LONG).show()
-//
-//            } else {
-//                verify()
-//            }
-//        }
+        binding.btnSignup.setOnClickListener {
+            val phoneNumber = binding.etPhoneNumber.text
+            val password = binding.etPassword
+
+            if (phoneNumber.isBlank() || phoneNumber.isEmpty() || !TextUtils.isDigitsOnly(
+                    phoneNumber
+                ) || phoneNumber.length != 11
+            ) {
+                Toast.makeText(requireContext(), "Enter Valid Number", Toast.LENGTH_LONG).show()
+
+            }  else {
+                verify()
+            }
+        }
 
 
 
@@ -202,14 +189,10 @@ class SignUpFragment : Fragment() {
         } else if (phone.isEmpty()) {
             phoneNumber.error = "Please Enter Your Phone"
         }
-        else if (pass.isEmpty() || (!Pattern.matches(
-                "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#\$%^&-+=()])(?=\\\\S+\$).{8,20}\$",
-                pass
-            )
-                    )) {
-            password.error = "Please Enter Vaild Email"
-            return
-        } else {
+        else if (pass.isEmpty()) {
+            password.error = "Please Enter Your Phone"
+        }
+        else {
             signUpViewModel.signUp(
                 phone,
                 name,

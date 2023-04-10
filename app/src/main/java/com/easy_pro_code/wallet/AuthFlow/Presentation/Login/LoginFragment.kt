@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -24,6 +25,8 @@ import java.util.concurrent.TimeUnit
 
 class LoginFragment : AuthenticationFragment() {
 
+    lateinit var phoneEditText: EditText
+    lateinit var passEditText: EditText
     lateinit var binding:FragmentLoginBinding
     private lateinit var loginViewModel:LoginViewModel
     private  var verificationId:String=""
@@ -106,15 +109,17 @@ class LoginFragment : AuthenticationFragment() {
     }
 
     private fun checkPhoneNumber() {
-
-        val phoneNumber = binding.etPhoneNumber.text
-        val password = binding.etPasswordInput.text.toString()
+        phoneEditText = binding.etPhoneNumber
+        passEditText = binding.etPasswordInput
+        val phoneNumber = phoneEditText.text.toString().trim()
+        val password = passEditText.text.toString().trim()
         if (phoneNumber.isBlank() || phoneNumber.isEmpty() || !TextUtils.isDigitsOnly(phoneNumber)
             || phoneNumber.length != 11) {
-
-            Toast.makeText(requireContext(), "Enter Valid Number ${phoneNumber.length}", Toast.LENGTH_LONG).show()
+            phoneEditText.error = "Enter Valid Number"
+            Toast.makeText(requireContext(), "Enter Valid Number", Toast.LENGTH_LONG).show()
         }
         else if (password.isBlank() || password.isEmpty()){
+            passEditText.error = "Enter Password"
             Toast.makeText(requireContext(), "Enter Password", Toast.LENGTH_LONG).show()
         }
         else {

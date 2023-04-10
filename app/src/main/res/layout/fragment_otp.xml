@@ -99,7 +99,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/pinView_otpCode" />
 
-            <ProgressBar
+            <ImageView
                 android:id="@+id/progressPar"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
