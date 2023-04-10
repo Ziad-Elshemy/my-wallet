@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.fragment.findNavController
 import com.easy_pro_code.wallet.R
@@ -23,6 +24,16 @@ class MyProfileFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_my_profile, container, false)
+
+        binding.editPhone.setOnClickListener {
+            Toast.makeText(requireContext(),"Coming Soon",Toast.LENGTH_SHORT).show()
+        }
+        binding.editEmail.setOnClickListener {
+            Toast.makeText(requireContext(),"Coming Soon",Toast.LENGTH_SHORT).show()
+        }
+        binding.editName.setOnClickListener {
+            Toast.makeText(requireContext(),"Coming Soon",Toast.LENGTH_SHORT).show()
+        }
 
         binding.myAccountName.setText(AuthUtils.manager.fetchData().userName)
 

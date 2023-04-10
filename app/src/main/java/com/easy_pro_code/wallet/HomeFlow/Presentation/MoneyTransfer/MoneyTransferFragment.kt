@@ -73,21 +73,38 @@ class MoneyTransferFragment : Fragment() {
 
 
         }
-        binding.TransferBtn.setOnClickListener {
-            transferViewModel.transferBalance(
-                receiver =  binding.mobileNumberEt.text.toString(),
-                cashTransfer = binding.amountEt.text.toString().toInt(),
-                userId = AuthUtils.manager.fetchData().id.toString(),
-                password = binding.passwordEtInput.text.toString()
-            )
 
-            transferViewModel.LiveData.observe(viewLifecycleOwner)
-            {
+        val phone = binding.mobileNumberEt
+        val amount = binding.amountEt
+        val password = binding.passwordEtInput
+
+
+        binding.TransferBtn.setOnClickListener {
+
+            if (phone.text.isEmpty()){
+                phone.error="Phone is required"
+            }
+            if(amount.text.isEmpty()){
+                amount.error="Amount is required"
+            }
+            if ( password.text.isEmpty()){
+                password.error="Password is required"
+            }
+            else{
+                transferViewModel.transferBalance(
+                    receiver =  binding.mobileNumberEt.text.toString(),
+                    cashTransfer = binding.amountEt.text.toString().toInt(),
+                    userId = AuthUtils.manager.fetchData().id.toString(),
+                    password = binding.passwordEtInput.text.toString()
+                )
+
+                transferViewModel.LiveData.observe(viewLifecycleOwner)
+                {
 //                if(it?.toString().equals("sorry,you don't have enough")){
 //                    Toast.makeText(requireContext(), "sorry,you don't have enough", Toast.LENGTH_SHORT).show()
 //                }else{
 
-                //// Error Handlation
+                    //// Error Handlation
                     it?.transfer?.id?.let{
                         Toast.makeText(requireContext(), "Transaction Done", Toast.LENGTH_SHORT).show()
                         binding.BalanceTv.text = "*************"
@@ -105,6 +122,9 @@ class MoneyTransferFragment : Fragment() {
                     }
 
                 }
+            }
+
+
 
 //            }
 

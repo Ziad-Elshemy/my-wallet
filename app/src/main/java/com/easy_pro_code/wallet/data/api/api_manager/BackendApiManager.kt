@@ -5,6 +5,7 @@ import com.easy_pro_code.wallet.data.api.web_services.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import java.util.concurrent.TimeUnit
 
 class ApiManager {
@@ -55,6 +56,10 @@ class ApiManager {
         }
         fun getTransferApi() : TransferBalanceWebService{
             return getInstance().create(TransferBalanceWebService::class.java)
+        }
+
+        fun getWithDrawApi() : WithDrawWebServices{
+            return getInstance().create(WithDrawWebServices::class.java)
         }
 
     }
