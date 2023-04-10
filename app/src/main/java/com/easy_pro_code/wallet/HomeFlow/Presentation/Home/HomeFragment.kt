@@ -17,15 +17,11 @@ import com.easy_pro_code.wallet.R
 import com.easy_pro_code.wallet.data.model.remote_firebase.AuthUtils
 import com.easy_pro_code.wallet.databinding.FragmentHomeBinding
 
-
 class HomeFragment : Fragment() {
     lateinit var binding: FragmentHomeBinding
     val  balanceViewModel: GetBalanceViewModel by activityViewModels()
 
     var userPhone= AuthUtils.manager.getPhone().toString()
-
-
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,7 +36,15 @@ class HomeFragment : Fragment() {
         binding.userName.setText("Hi, "+AuthUtils.manager.fetchData().userName)
         binding.userName.isEnabled = false
 
-        binding.price.setOnClickListener {
+        binding.notificationImg.setOnClickListener {
+            Toast.makeText(requireContext(),"Coming soon!",Toast.LENGTH_SHORT).show()
+        }
+
+        binding.qrImage.setOnClickListener {
+            Toast.makeText(requireContext(),"Coming soon!",Toast.LENGTH_SHORT).show()
+        }
+
+        binding.priceL.setOnClickListener {
 
             val view = layoutInflater.inflate(R.layout.dialog_balance ,null)
 
