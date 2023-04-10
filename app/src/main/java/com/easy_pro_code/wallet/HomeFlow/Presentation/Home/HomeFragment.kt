@@ -36,7 +36,6 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_moneyTransferFragment)
         }
 
-        binding.userName.setText("Hi, "+AuthUtils.manager.fetchData().userName)
         binding.consDeposit.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_depositFragment)
         }
@@ -63,10 +62,6 @@ class HomeFragment : Fragment() {
         binding.paymentsCons.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_paymentServicesFragment)
         }
-
-
-
-
 
         binding.userName.text = "Hi, "+AuthUtils.manager.fetchData().userName
         binding.userName.isEnabled = false
