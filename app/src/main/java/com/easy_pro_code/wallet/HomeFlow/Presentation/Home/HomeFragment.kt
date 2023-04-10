@@ -26,8 +26,6 @@ class HomeFragment : Fragment() {
 
     var userPhone= AuthUtils.manager.getPhone().toString()
 
-
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -65,14 +63,18 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_paymentServicesFragment)
         }
 
-
-
-
-
         binding.userName.text = "Hi, "+AuthUtils.manager.fetchData().userName
         binding.userName.isEnabled = false
 
-        binding.price.setOnClickListener {
+        binding.notificationImg.setOnClickListener {
+            Toast.makeText(requireContext(),"Coming soon!",Toast.LENGTH_SHORT).show()
+        }
+
+        binding.qrImage.setOnClickListener {
+            Toast.makeText(requireContext(),"Coming soon!",Toast.LENGTH_SHORT).show()
+        }
+
+        binding.priceL.setOnClickListener {
 
             val view = layoutInflater.inflate(R.layout.dialog_balance ,null)
 
