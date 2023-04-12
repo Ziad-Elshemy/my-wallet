@@ -123,13 +123,6 @@ class MoneyTransferFragment : Fragment() {
 
                 }
             }
-            transferViewModel.LiveData.value == null
-
-
-
-
-//            }
-
 
         }
 
