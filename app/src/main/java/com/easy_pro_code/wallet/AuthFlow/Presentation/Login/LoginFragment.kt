@@ -122,6 +122,7 @@ class LoginFragment : AuthenticationFragment() {
             passEditText.error = "Enter Password"
             Toast.makeText(requireContext(), "Enter Password", Toast.LENGTH_LONG).show()
         }
+
         else {
             //Toast.makeText(requireContext(), "Success", Toast.LENGTH_LONG).show()
             loadingState()

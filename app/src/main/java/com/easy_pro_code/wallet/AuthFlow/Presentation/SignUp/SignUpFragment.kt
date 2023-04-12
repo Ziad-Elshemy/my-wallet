@@ -75,18 +75,17 @@ class SignUpFragment : Fragment() {
 
                 password.text.toString()
             )
-        } else {
-             if(userName.text.isEmpty()){
-                userName.error = "user name can't be empty"
+        }else if(userName.text.isEmpty() || userName.text.isBlank() || userName.text.length <= 4 || userName.text.length >= 15){
+                userName.error = "user name can't be empty or less than 4 character"
             }
-            else if(phoneNumber.text.isEmpty()){
-                phoneNumber.error = "phone number can't be empty"
+              else if(phoneNumber.text.isEmpty() || phoneNumber.text.isBlank() || phoneNumber.text.length != 11){
+                phoneNumber.error = "phone number not correct"
             }
-            else if(password.text!!.isEmpty()){
-                password.error = "password can't be empty"
+              else if(password.text!!.isEmpty() || password.text!!.isBlank() || password.text!!.length <= 8){
+                password.error = "password can't be empty or more than 8 character"
             }
         }
-    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -137,28 +136,9 @@ class SignUpFragment : Fragment() {
         userName = binding.etUserName
         phoneNumber = binding.etPhoneNumber
         password = binding.etPasswordInput
-
-//        gender = binding.dropdownMenuGender
         binding.btnLogin.setOnClickListener {
             findNavController().navigateUp()
         }
-        binding.btnSignup.setOnClickListener {
-            val phoneNumber = binding.etPhoneNumber.text
-            val password = binding.etPassword
-
-            if (phoneNumber.isBlank() || phoneNumber.isEmpty() || !TextUtils.isDigitsOnly(
-                    phoneNumber
-                ) || phoneNumber.length != 11
-            ) {
-                Toast.makeText(requireContext(), "Enter Valid Number", Toast.LENGTH_LONG).show()
-
-            }  else {
-                verify()
-            }
-        }
-
-
-
     }
 
     private fun loadingState() {
@@ -174,35 +154,6 @@ class SignUpFragment : Fragment() {
     }
 
 
-    private fun verify(){
-        userName = binding.etUserName
-        phoneNumber = binding.etPhoneNumber
-        password = binding.etPasswordInput
-
-        val name = userName.text.toString().trim()
-        val phone = phoneNumber.text.toString().trim()
-        val pass = password.text.toString().trim()
-
-        if (name.isEmpty()) {
-            userName.error = "Please Enter Your User Name"
-            return
-        } else if (phone.isEmpty()) {
-            phoneNumber.error = "Please Enter Your Phone"
-        }
-        else if (pass.isEmpty()) {
-            password.error = "Please Enter Your Phone"
-        }
-        else {
-            signUpViewModel.signUp(
-                phone,
-                name,
-                pass
-            )
-
-        }
-
-
-    }
 
 
     }

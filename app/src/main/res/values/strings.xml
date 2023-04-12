@@ -17,10 +17,10 @@
     <string name="national_id">National ID</string>
     <string name="national_id_photo">National ID Photo</string>
     <string name="re_upload">Re-upload</string>
+    <string name="are_you_sure">Are you sure ?</string>
     <string name="profile_photo">Profile Photo</string>
     <string name="explore_the_app">Explore the app</string>
     <string name="your_application_is_submitted_and_is_under_review">Your application is submitted and is under review</string>
-    <string name="are_you_sure">Are you sure ?</string>
     <string name="no_i_want_to_stay">No, I want to stay</string>
     <string name="yes_i_want_to_log_out">Yes, I want to log out</string>
     <string name="enter_otp_code">Enter otp code</string>
@@ -99,4 +99,6 @@
     <string name="transaction_no">Transaction no</string>
     <string name="report_a_problem">Report a problem</string>
     <string name="deposit_money_in_your_wallet">Deposit money in your wallet</string>
+    <string name="hi">Hi ,</string>
+
 </resources>

@@ -75,6 +75,7 @@
                 android:layout_marginTop="30dp"
                 app:boxStrokeWidth="0dp"
                 app:boxStrokeWidthFocused="0dp"
+                android:textAlignment="center"
                 >
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/et_passwordInput"

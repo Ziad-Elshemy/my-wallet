@@ -41,7 +41,6 @@ class HomeFragment : Fragment() {
         }
 
         binding.notificationImg.setOnClickListener {
-//            findNavController().navigate(R.id.action_homeFragment_to_notificationsFragment)
             Toast.makeText(requireContext(),"Coming Soon",Toast.LENGTH_SHORT).show()
         }
 
@@ -63,7 +62,7 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_paymentServicesFragment)
         }
 
-        binding.userName.text = "Hi, "+AuthUtils.manager.fetchData().userName
+        binding.userName.text = getString(R.string.hi)+AuthUtils.manager.fetchData().userName
         binding.userName.isEnabled = false
 
         binding.notificationImg.setOnClickListener {
