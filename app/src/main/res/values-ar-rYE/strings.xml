@@ -100,5 +100,6 @@
     <string name="hi">أهلا ,</string>
     <string name="re_upload">أعادة التحميل</string>
     <string name="are_you_sure">هل انت متاكيد؟</string>
+    <string name="resend_again">اعادة الارسال</string>
 
 </resources>
