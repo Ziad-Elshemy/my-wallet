@@ -97,7 +97,6 @@ class MoneyTransferFragment : Fragment() {
                     userId = AuthUtils.manager.fetchData().id.toString(),
                     password = binding.passwordEtInput.text.toString()
                 )
-
                 transferViewModel.LiveData.observe(viewLifecycleOwner)
                 {
 //                if(it?.toString().equals("sorry,you don't have enough")){
@@ -108,9 +107,10 @@ class MoneyTransferFragment : Fragment() {
                     it?.transfer?.id?.let{
                         Toast.makeText(requireContext(), "Transaction Done", Toast.LENGTH_SHORT).show()
                         binding.BalanceTv.text = "*************"
+                        binding.mobileNumberEt.text.clear()
+                        binding.passwordEtInput.text.clear()
+                        binding.amountEt.text.clear()
                     }
-
-
 
                     if( it?.transfer?.id == null && it?.message ==null)
                     {
@@ -123,6 +123,8 @@ class MoneyTransferFragment : Fragment() {
 
                 }
             }
+            transferViewModel.LiveData.value == null
+
 
 
 
