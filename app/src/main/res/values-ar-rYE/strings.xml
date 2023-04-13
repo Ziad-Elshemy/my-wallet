@@ -100,5 +100,10 @@
     <string name="hi">أهلا ,</string>
     <string name="re_upload">أعادة التحميل</string>
     <string name="are_you_sure">هل انت متاكيد؟</string>
+    <string name="resend_again">اعادة الارسال</string>
+    <string name="error">خطأ!</string>
+    <string name="please_check_interent">من فضلك تاكد من الاتصال بالانترنت و حاول مرة اخرى</string>
+    <string name="close_app">أغلاق التطبيق</string>
+    <string name="try_again">حاول مرة اخرى</string>
 
 </resources>

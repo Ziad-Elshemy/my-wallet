@@ -52,8 +52,12 @@ class OtpFragment : AuthenticationFragment() {
         phoneData=otpFragmentArgs.phoneData
         mVerificationId=phoneData.verificationId
 
+        binding.progressPar.visibility =View.VISIBLE
+
         binding.txtEnterCode.setOnClickListener{
             resendVerificationCode("+2"+phoneData.phoneNumber, FirebaseUtils.token)
+            binding.txtEnterCode.visibility = View.INVISIBLE
+            Toast.makeText(requireContext(), "ReSend is done ", Toast.LENGTH_SHORT).show()
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object: OnBackPressedCallback(true){
