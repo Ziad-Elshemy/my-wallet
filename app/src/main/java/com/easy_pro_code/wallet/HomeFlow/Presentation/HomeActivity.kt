@@ -8,9 +8,13 @@ import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
+import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigation
+import com.easy_pro_code.wallet.HomeFlow.ViewModels.SuspendWindowViewModel
 import com.easy_pro_code.wallet.R
 import com.easy_pro_code.wallet.data.model.remote_firebase.AuthUtils
 import com.easy_pro_code.wallet.databinding.ActivityHomeBinding
@@ -25,6 +29,8 @@ class HomeActivity : AppCompatActivity() {
     lateinit var networkRequest: NetworkRequest
     lateinit var networkCallback: ConnectivityManager.NetworkCallback
     lateinit var connectivityManager: ConnectivityManager
+
+    private val suspendWindowViewModel:SuspendWindowViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,6 +81,38 @@ class HomeActivity : AppCompatActivity() {
             showSettingsAlert()
         }
 
+        subscribeToLiveData()
+
+    }
+
+    private fun subscribeToLiveData() {
+        suspendWindowViewModel.suspendWindowLiveData.observe(this){
+            it?.let{
+                if (it){
+                    showSuspendWindow()
+                }else{
+                    hideSuspendWindow()
+                }
+//                suspendWindowViewMode.suspendWindowLiveData.value=null
+            }
+        }
+    }
+
+    private fun showSuspendWindow() {
+        dataBinding.greyBackground.visibility = View.VISIBLE
+        dataBinding.progressBar.visibility = View.VISIBLE
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+        )
+    }
+
+
+
+    private fun hideSuspendWindow(){
+        dataBinding.greyBackground.visibility = View.GONE
+        dataBinding.progressBar.visibility = View.GONE
+        window.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
     }
 
     fun showSettingsAlert() {

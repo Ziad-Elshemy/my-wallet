@@ -51,11 +51,15 @@ class ApiManager {
             return getInstance().create(NationalInfoWebService::class.java)
         }
 
-        fun getTransactionHistory() : TransactionsWebServices{
-            return getInstance().create(TransactionsWebServices::class.java)
+        fun getTransactionHistory() : TransferHistoryWebService{
+            return getInstance().create(TransferHistoryWebService::class.java)
         }
         fun getTransferApi() : TransferBalanceWebService{
             return getInstance().create(TransferBalanceWebService::class.java)
+        }
+
+        fun getWithdrawApi() : WithdrawWebService{
+            return getInstance().create(WithdrawWebService::class.java)
         }
 
 //        fun getWithDrawApi() : WithDrawWebServices{

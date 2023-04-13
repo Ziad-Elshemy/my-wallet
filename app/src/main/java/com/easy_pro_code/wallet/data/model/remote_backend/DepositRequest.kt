@@ -10,6 +10,9 @@ data class DepositRequest(
 	@field:SerializedName("Money")
 	val money: Int? = null,
 
+	@field:SerializedName("img")
+	val img: String,
+
 	@field:SerializedName("userId")
 	val userId: String? = null,
 

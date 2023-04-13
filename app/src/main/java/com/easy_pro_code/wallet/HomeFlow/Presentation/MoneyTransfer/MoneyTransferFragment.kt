@@ -13,6 +13,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.GetBalanceViewModel
+import com.easy_pro_code.wallet.HomeFlow.ViewModels.SuspendWindowViewModel
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.TransferViewModel
 import com.easy_pro_code.wallet.HomeFlow.model.ErrorHandelation
 import com.easy_pro_code.wallet.R
@@ -24,6 +25,7 @@ class MoneyTransferFragment : Fragment() {
     lateinit var  binding: FragmentMoneyTransferBinding
     val  balanceViewModel: GetBalanceViewModel by activityViewModels()
     val  transferViewModel:TransferViewModel by activityViewModels ()
+    private val suspendWindowViewModel:SuspendWindowViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,11 +54,12 @@ class MoneyTransferFragment : Fragment() {
 
 
             okButton.setOnClickListener {
-
+                suspendWindowViewModel.progressBar(true)
                 balanceViewModel.getBalance(userPhone,password.text.toString())
 
                 balanceViewModel.userLiveData.observe(viewLifecycleOwner)
                 {
+                    suspendWindowViewModel.progressBar(false)
                     if(it?.balance ==null)
                     {
                         Toast.makeText(context, "retry, Invalid Password", Toast.LENGTH_SHORT).show()
@@ -91,43 +94,18 @@ class MoneyTransferFragment : Fragment() {
                 password.error="Password is required"
             }
             else{
+                suspendWindowViewModel.progressBar(true)
                 transferViewModel.transferBalance(
                     receiver =  binding.mobileNumberEt.text.toString(),
                     cashTransfer = binding.amountEt.text.toString().toInt(),
                     userId = AuthUtils.manager.fetchData().id.toString(),
                     password = binding.passwordEtInput.text.toString()
                 )
-                transferViewModel.LiveData.observe(viewLifecycleOwner)
-                {
-//                if(it?.toString().equals("sorry,you don't have enough")){
-//                    Toast.makeText(requireContext(), "sorry,you don't have enough", Toast.LENGTH_SHORT).show()
-//                }else{
-
-                    //// Error Handlation
-                    it?.transfer?.id?.let{
-                        Toast.makeText(requireContext(), "Transaction Done", Toast.LENGTH_SHORT).show()
-                        binding.BalanceTv.text = "*************"
-                        binding.mobileNumberEt.text.clear()
-                        binding.passwordEtInput.text.clear()
-                        binding.amountEt.text.clear()
-                    }
-
-                    if( it?.transfer?.id == null && it?.message ==null)
-                    {
-                        Toast.makeText(requireContext(), "Try Again", Toast.LENGTH_SHORT).show()
-                    }
-                    else if (it.message != null){
-                        Toast.makeText(requireContext(), it.message.toString() , Toast.LENGTH_SHORT).show()
-                        Log.e("Ziad Transfer message",it.message.toString())
-                    }
-
-                }
             }
 
         }
 
-//        subscribeToLiveData()
-
+        subscribeToLiveData()
 
         // Inflate the layout for this fragment
         return binding.root
@@ -137,8 +115,34 @@ class MoneyTransferFragment : Fragment() {
     fun subscribeToLiveData(){
         ErrorHandelation.errorLiveData.observe(viewLifecycleOwner)
         {
+            suspendWindowViewModel.progressBar(false)
             Toast.makeText(requireContext(), it.toString() , Toast.LENGTH_SHORT).show()
             Log.e("Ziad Transfer",it.toString())
+        }
+        transferViewModel.LiveData.observe(viewLifecycleOwner)
+        {
+//                if(it?.toString().equals("sorry,you don't have enough")){
+//                    Toast.makeText(requireContext(), "sorry,you don't have enough", Toast.LENGTH_SHORT).show()
+//                }else{
+            suspendWindowViewModel.progressBar(false)
+            //// Error Handlation
+            it?.transfer?.id?.let{
+                Toast.makeText(requireContext(), "Transaction Done", Toast.LENGTH_SHORT).show()
+                binding.BalanceTv.text = "*************"
+                binding.mobileNumberEt.text.clear()
+                binding.passwordEtInput.text.clear()
+                binding.amountEt.text.clear()
+            }
+
+            if( it?.transfer?.id == null && it?.message ==null)
+            {
+                Toast.makeText(requireContext(), "Try Again", Toast.LENGTH_SHORT).show()
+            }
+            else if (it.message != null){
+                Toast.makeText(requireContext(), it.message.toString() , Toast.LENGTH_SHORT).show()
+                Log.e("Ziad Transfer message",it.message.toString())
+            }
+
         }
     }
 

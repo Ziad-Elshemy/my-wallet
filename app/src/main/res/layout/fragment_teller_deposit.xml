@@ -5,8 +5,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".HomeFlow.Presentation.MoneyTransfer.MoneyTransferFragment">
+        android:layout_height="match_parent">
 
 
         <androidx.cardview.widget.CardView
@@ -76,55 +75,28 @@
         </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/mobile_number_tv"
+            android:id="@+id/amount_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
-            android:text="@string/deposit_money_in_your_wallet"
+            android:fontFamily="@font/regular"
+            android:text="@string/enter_amount"
             android:textColor="@color/black"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/my_wallet_card_view" />
 
         <EditText
-            android:id="@+id/mobile_number_et"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:background="@drawable/text_view_radius"
-            android:fontFamily="@font/regular"
-            android:hint="@string/mobile_number"
-            android:paddingHorizontal="20dp"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="@id/mobile_number_tv"
-            app:layout_constraintTop_toBottomOf="@id/mobile_number_tv" />
-
-        <TextView
-            android:id="@+id/amount_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="25dp"
-            android:fontFamily="@font/regular"
-            android:text="@string/enter_amount"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/mobile_number_et" />
-
-        <EditText
             android:id="@+id/amount_et"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/text_view_radius"
             android:fontFamily="@font/regular"
             android:hint="@string/amount"
+            android:inputType="numberDecimal"
             android:paddingHorizontal="20dp"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/amount_tv"
@@ -208,6 +180,43 @@
 
             app:layout_constraintVertical_bias="0.294"
             tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/photo_id_card"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginTop="20dp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/transfer_tv">
+
+            <ImageView
+                android:id="@+id/identity_photo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/card_background" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/upload_identity_photo_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/hint_text_color"
+            android:drawableLeft="@drawable/baseline_upgrade_24"
+            android:text="@string/re_upload"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="12dp"
+            android:fontFamily="@font/regular"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/photo_id_card" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

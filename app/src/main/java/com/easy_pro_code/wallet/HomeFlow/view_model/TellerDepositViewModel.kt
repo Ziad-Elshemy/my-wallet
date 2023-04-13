@@ -12,16 +12,23 @@ class TellerDepositViewModel:ViewModel() {
     val depositLiveData=MutableLiveData<DepositResponse>()
     val depositWebService=ApiManager.getDepositApi()
     fun deposit(
-        userId:String,
-        password:String,
-        money:Int
+        userId: String,
+        password: String,
+        money: Int,
+        imageString: String
     ){
         viewModelScope.launch {
-            depositLiveData.value=depositWebService.deposit(DepositRequest(
-                money=money,
-                password=password,
-                userId = userId
-            ))
+            try {
+                depositLiveData.value=depositWebService.deposit(DepositRequest(
+                    money=money,
+                    password=password,
+                    userId = userId,
+                    img = imageString
+                ))
+            }catch (ex:Exception){
+
+            }
+
         }
     }
 }

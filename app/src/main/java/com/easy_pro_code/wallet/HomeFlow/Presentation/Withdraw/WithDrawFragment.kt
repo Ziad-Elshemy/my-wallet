@@ -11,7 +11,11 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.GetBalanceViewModel
+import com.easy_pro_code.wallet.HomeFlow.ViewModels.SuspendWindowViewModel
+import com.easy_pro_code.wallet.HomeFlow.ViewModels.WithdrawViewModel
 import com.easy_pro_code.wallet.R
 import com.easy_pro_code.wallet.data.model.remote_firebase.AuthUtils
 import com.easy_pro_code.wallet.databinding.FragmentWithDrawBinding
@@ -19,10 +23,18 @@ import com.easy_pro_code.wallet.databinding.FragmentWithDrawBinding
 
 class WithDrawFragment : Fragment() {
 
-    lateinit var binding:FragmentWithDrawBinding
-    val  balanceViewModel: GetBalanceViewModel by activityViewModels()
+    private lateinit var binding:FragmentWithDrawBinding
+    private val  balanceViewModel: GetBalanceViewModel by activityViewModels()
+
+    private lateinit var withDrawViewModel:WithdrawViewModel
+
+    private val suspendWindowViewModel: SuspendWindowViewModel by activityViewModels()
 
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        withDrawViewModel=ViewModelProvider(this).get(WithdrawViewModel::class.java)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -31,10 +43,6 @@ class WithDrawFragment : Fragment() {
         userPhone = userPhone.replace("+2" , "")
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_with_draw, container, false)
-
-        val amount = binding.amountEt
-        val password = binding.passwordEtInput
-
 
         binding.showBalance.setOnClickListener {
             val view = layoutInflater.inflate(R.layout.dialog_balance ,null)
@@ -52,11 +60,13 @@ class WithDrawFragment : Fragment() {
 
 
             okButton.setOnClickListener {
-
+                suspendWindowViewModel.progressBar(true)
                 balanceViewModel.getBalance(userPhone,password.text.toString())
 
                 balanceViewModel.userLiveData.observe(viewLifecycleOwner)
                 {
+                    suspendWindowViewModel.progressBar(false)
+
                     if(it?.balance ==null)
                     {
                         Toast.makeText(context, "retry, Invalid Password", Toast.LENGTH_SHORT).show()
@@ -74,9 +84,26 @@ class WithDrawFragment : Fragment() {
 
         }
 
-
-
+        withDrawViewModel.withdrawLiveData.observe(viewLifecycleOwner){
+            it?.let {
+                if(it.code()==200){
+                    suspendWindowViewModel.progressBar(false)
+                    Toast.makeText(requireContext(), "We will review your transaction and reply soon", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+        binding.btnConfirm.setOnClickListener {
+            validateRequest(binding.passwordEtInput.text.toString(),binding.amountEt.text.toString().toInt())
+        }
         return binding.root
+    }
+
+    private fun validateRequest(password: String, amount: Int) {
+        suspendWindowViewModel.progressBar(true)
+        withDrawViewModel.withdraw(
+            password =password ,
+            money =amount
+        )
     }
 
 }

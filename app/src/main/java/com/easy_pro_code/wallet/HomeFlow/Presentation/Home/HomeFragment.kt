@@ -45,7 +45,8 @@ class HomeFragment : Fragment() {
         }
 
         binding.profileImageCard.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMyProfileFragment())
+            findNavController().navigate(HomeFragmentDirections.
+            actionHomeFragmentToMyProfileFragment())
         }
 
 
@@ -56,7 +57,8 @@ class HomeFragment : Fragment() {
 
 
         binding.paymentsCons.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPaymentServicesFragment())
+            Toast.makeText(requireContext(), "Coming Soon", Toast.LENGTH_SHORT).show()
+//            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPaymentServicesFragment())
         }
 
         binding.userName.text = getString(R.string.hi)+AuthUtils.manager.fetchData().userName
@@ -104,8 +106,8 @@ class HomeFragment : Fragment() {
 
                 dialog_balance.dismiss()
             }
-
         }
+
         return binding.root
     }
 
