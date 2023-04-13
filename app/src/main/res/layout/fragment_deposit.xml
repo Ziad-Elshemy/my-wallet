@@ -105,29 +105,6 @@
 
         </androidx.cardview.widget.CardView>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btn_continue"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="50dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="50dp"
-            android:backgroundTint="@color/base_green"
-            android:paddingHorizontal="40dp"
-            android:paddingVertical="5dp"
-            android:text="@string/continueq"
-            android:textAllCaps="false"
-            android:textColor="@color/text_button_color"
-            android:textSize="16sp"
-            app:cornerRadius="10dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.54"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.294"
-            tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
-
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

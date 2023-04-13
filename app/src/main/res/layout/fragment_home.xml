@@ -386,61 +386,6 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/transaction_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="15dp"
-                android:text="@string/transaction"
-                android:textColor="@color/text_color"
-                android:textSize="16sp"
-                android:fontFamily="@font/regular"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/with_draw_cons" />
-
-            <TextView
-                android:id="@+id/see_all_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="20dp"
-                android:text="@string/see_all"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:fontFamily="@font/regular"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/with_draw_cons" />
-
-            <TextView
-                android:id="@+id/tv1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/transaction_converted_200_000_yer_for_the_number_01002330230_service_fee_30_000_yer"
-                android:textColor="@color/text_color"
-                android:textSize="16sp"
-                android:fontFamily="@font/regular"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/transaction_tv" />
-
-            <TextView
-                android:id="@+id/tv2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="50dp"
-                android:text="@string/withdrawal_100_000_yer_service_fee_1000_yer"
-                android:textColor="@color/text_color"
-                android:fontFamily="@font/regular"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv1" />
-
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

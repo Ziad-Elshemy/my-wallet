@@ -48,9 +48,6 @@ class HomeFragment : Fragment() {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMyProfileFragment())
         }
 
-        binding.transactionTv.setOnClickListener {
-            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMyTransactionFragment())
-        }
 
         binding.withDrawCons.setOnClickListener {
             findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToWithDrawFragment())
