@@ -33,11 +33,11 @@ class HomeFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_home,container,false)
         userPhone = userPhone.replace("+2" , "")
         binding.moneyTransferIcon.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_moneyTransferFragment)
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMoneyTransferFragment())
         }
 
         binding.consDeposit.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_depositFragment)
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToDepositFragment())
         }
 
         binding.notificationImg.setOnClickListener {
@@ -45,21 +45,21 @@ class HomeFragment : Fragment() {
         }
 
         binding.profileImageCard.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_myProfileFragment)
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMyProfileFragment())
         }
 
         binding.transactionTv.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_myTransactionFragment)
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToMyTransactionFragment())
         }
 
         binding.withDrawCons.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_withDrawFragment)
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToWithDrawFragment())
         }
 
 
 
         binding.paymentsCons.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_paymentServicesFragment)
+            findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToPaymentServicesFragment())
         }
 
         binding.userName.text = getString(R.string.hi)+AuthUtils.manager.fetchData().userName

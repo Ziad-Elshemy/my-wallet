@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/payment_graph"
+    app:startDestination="@id/paymentLogInFragment">
+    <fragment
+        tools:layout="@layout/fragment_login"
+        android:id="@+id/paymentLogInFragment"
+        android:name="com.easy_pro_code.wallet.payment.payment_logIn.PaymentLogInFragment"
+        android:label="PaymentLogInFragment" >
+        <action
+            android:id="@+id/action_paymentLogInFragment_to_paymentOtpFragment"
+            app:destination="@id/paymentOtpFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_otp"
+        android:id="@+id/paymentOtpFragment"
+        android:name="com.easy_pro_code.wallet.payment.payment_otp.PaymentOtpFragment"
+        android:label="PaymentOtpFragment" >
+        <argument
+            android:name="userData"
+            app:argType="com.easy_pro_code.wallet.data.model.remote_backend.LoginResponse" />
+        <argument
+            android:name="phoneData"
+            app:argType="com.easy_pro_code.wallet.data.model.remote_firebase.PhoneVerification" />
+        <action
+            android:id="@+id/action_paymentOtpFragment_to_paymentMoneyPayNow"
+            app:destination="@id/paymentMoneyPayNow" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_money_transfer"
+        android:id="@+id/paymentMoneyPayNow"
+        android:name="com.easy_pro_code.wallet.payment.payment_money_pay_now.PaymentMoneyPayNow"
+        android:label="PaymentMoneyPayNow" />
+</navigation>
