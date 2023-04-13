@@ -56,7 +56,7 @@ class OtpFragment : AuthenticationFragment() {
 
         binding.txtEnterCode.setOnClickListener{
             resendVerificationCode("+2"+phoneData.phoneNumber, FirebaseUtils.token)
-            binding.txtEnterOtpCode.visibility = View.INVISIBLE
+            binding.txtEnterCode.visibility = View.INVISIBLE
             Toast.makeText(requireContext(), "ReSend is done ", Toast.LENGTH_SHORT).show()
         }
 
