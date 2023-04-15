@@ -6,6 +6,7 @@ import android.graphics.Bitmap
 import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.util.Base64
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -129,10 +130,16 @@ class TellerDepositFragment : Fragment() {
 
     private fun subscribeToLiveData() {
         tellerDepositViewmodel.depositLiveData.observe(viewLifecycleOwner){
-            it?.let {
+            Log.e("Messages",it.messages.toString())
+            if (it.messages.toString().equals("Do you forget password")){
                 suspendWindowViewModel.progressBar(false)
-                Toast.makeText(requireContext(), "We will review your transaction and reply soon", Toast.LENGTH_SHORT).show()
-                findNavController().popBackStack()
+                Toast.makeText(requireContext(),"Wrong Password",Toast.LENGTH_SHORT).show()
+            }else{
+                it?.let {
+                    suspendWindowViewModel.progressBar(false)
+                    Toast.makeText(requireContext(), "We will review your transaction and reply soon", Toast.LENGTH_SHORT).show()
+                    findNavController().popBackStack()
+                }
             }
         }
     }

@@ -8,7 +8,12 @@ import com.google.gson.annotations.SerializedName
 data class DepositResponse(
 
 	@field:SerializedName("Deposit")
-	val deposit: Deposit? = null
+	val deposit: Deposit? = null,
+
+	@field:SerializedName("message")
+	val messages: String? = null
+
+
 ) : Parcelable
 
 @Parcelize
