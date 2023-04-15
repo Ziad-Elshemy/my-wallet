@@ -62,6 +62,10 @@ class ApiManager {
             return getInstance().create(WithdrawWebService::class.java)
         }
 
+        fun getCheckUserApi() : CheckUserWebService{
+            return getInstance().create(CheckUserWebService::class.java)
+        }
+
 //        fun getWithDrawApi() : WithDrawWebServices{
 //            return getInstance().create(WithDrawWebServices::class.java)
 //        }

@@ -106,5 +106,6 @@
     <string name="close_app">أغلاق التطبيق</string>
     <string name="try_again">حاول مرة اخرى</string>
     <string name="enter_your_mail">ادخل الايميل الخاص بك</string>
+    <string name="recipient_full_name">اسم المستلم كاملاً</string>
 
 </resources>

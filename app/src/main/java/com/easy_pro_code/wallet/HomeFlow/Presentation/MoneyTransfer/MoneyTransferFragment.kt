@@ -12,6 +12,9 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import com.easy_pro_code.wallet.HomeFlow.ViewModels.CheckUserViewModel
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.GetBalanceViewModel
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.SuspendWindowViewModel
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.TransferViewModel
@@ -25,7 +28,15 @@ class MoneyTransferFragment : Fragment() {
     lateinit var  binding: FragmentMoneyTransferBinding
     val  balanceViewModel: GetBalanceViewModel by activityViewModels()
     val  transferViewModel:TransferViewModel by activityViewModels ()
+
+    lateinit var checkUserViewModel: CheckUserViewModel
+
     private val suspendWindowViewModel:SuspendWindowViewModel by activityViewModels()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        checkUserViewModel = ViewModelProvider(this).get(CheckUserViewModel::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -94,13 +105,8 @@ class MoneyTransferFragment : Fragment() {
                 password.error="Password is required"
             }
             else{
-                suspendWindowViewModel.progressBar(true)
-                transferViewModel.transferBalance(
-                    receiver =  binding.mobileNumberEt.text.toString(),
-                    cashTransfer = binding.amountEt.text.toString().toInt(),
-                    userId = AuthUtils.manager.fetchData().id.toString(),
-                    password = binding.passwordEtInput.text.toString()
-                )
+                checkUserViewModel.checkUser(binding.mobileNumberEt.text.toString())
+
             }
 
         }
@@ -119,6 +125,23 @@ class MoneyTransferFragment : Fragment() {
             Toast.makeText(requireContext(), it.toString() , Toast.LENGTH_SHORT).show()
             Log.e("Ziad Transfer",it.toString())
         }
+
+        checkUserViewModel.checkUserLiveData.observe(viewLifecycleOwner){
+            Log.e("Messages",it.messages.toString())
+            if (it.messages.toString().equals("Invalid user")){
+                Toast.makeText(requireContext(),"Invalid Recipient",Toast.LENGTH_LONG).show()
+//                findNavController().popBackStack()
+            }else{
+                suspendWindowViewModel.progressBar(true)
+                transferViewModel.transferBalance(
+                    receiver =  binding.mobileNumberEt.text.toString(),
+                    cashTransfer = binding.amountEt.text.toString().toInt(),
+                    userId = AuthUtils.manager.fetchData().id.toString(),
+                    password = binding.passwordEtInput.text.toString()
+                )
+            }
+        }
+
         transferViewModel.LiveData.observe(viewLifecycleOwner)
         {
 //                if(it?.toString().equals("sorry,you don't have enough")){

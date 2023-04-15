@@ -2,6 +2,7 @@ package com.easy_pro_code.wallet.HomeFlow.Presentation.Withdraw
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.GetBalanceViewModel
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.SuspendWindowViewModel
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.WithdrawViewModel
@@ -84,11 +86,21 @@ class WithDrawFragment : Fragment() {
         }
 
         withDrawViewModel.withdrawLiveData.observe(viewLifecycleOwner){
+            Log.e("Messages",it.messages.toString())
             it?.let {
-                if(it.code()==200){
+                if(it.messages.toString().equals("Do you forget password")){
                     suspendWindowViewModel.progressBar(false)
-                    Toast.makeText(requireContext(), "We will review your transaction and reply soon", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(),"Wrong Password",Toast.LENGTH_SHORT).show()
                 }
+                else if (it.messages.toString().equals("Your balance not enough")){
+                    suspendWindowViewModel.progressBar(false)
+                    Toast.makeText(requireContext(),"Your balance not enough",Toast.LENGTH_SHORT).show()
+                }else{
+                    suspendWindowViewModel.progressBar(false)
+                    Toast.makeText(requireContext(), "We will review your transaction and reply soon", Toast.LENGTH_LONG).show()
+                    findNavController().popBackStack()
+                }
+
             }
         }
         binding.btnConfirm.setOnClickListener {

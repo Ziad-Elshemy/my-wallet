@@ -137,7 +137,7 @@ class TellerDepositFragment : Fragment() {
             }else{
                 it?.let {
                     suspendWindowViewModel.progressBar(false)
-                    Toast.makeText(requireContext(), "We will review your transaction and reply soon", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "We will review your transaction and reply soon", Toast.LENGTH_LONG).show()
                     findNavController().popBackStack()
                 }
             }
