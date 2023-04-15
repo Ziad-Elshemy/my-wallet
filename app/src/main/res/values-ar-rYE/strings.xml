@@ -105,5 +105,6 @@
     <string name="please_check_interent">من فضلك تاكد من الاتصال بالانترنت و حاول مرة اخرى</string>
     <string name="close_app">أغلاق التطبيق</string>
     <string name="try_again">حاول مرة اخرى</string>
+    <string name="enter_your_mail">ادخل الايميل الخاص بك</string>
 
 </resources>

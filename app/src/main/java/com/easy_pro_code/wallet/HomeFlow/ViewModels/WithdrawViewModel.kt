@@ -13,8 +13,10 @@ class WithdrawViewModel:ViewModel() {
     val withdrawLiveData=MutableLiveData<Response<*>>()
     private val withdrawWebService=ApiManager.getWithdrawApi()
     fun withdraw(
-        password:String,
-        money:Int
+        password: String,
+        money: Int,
+        name: String,
+        phone: String
     ){
         viewModelScope.launch {
             try {
@@ -22,10 +24,10 @@ class WithdrawViewModel:ViewModel() {
                 withdrawLiveData.value=withdrawWebService.withdraw(
                     WithdrawRequest(
                         money=money,
-                        phone = user.phone,
+                        phone = phone,
                         userId = user.id,
                         password=password,
-                        name = user.userName
+                        name = name
                     )
                 )
             }catch (ex:Exception){

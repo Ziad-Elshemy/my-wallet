@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.GetBalanceViewModel
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.SuspendWindowViewModel
 import com.easy_pro_code.wallet.HomeFlow.ViewModels.WithdrawViewModel
@@ -93,17 +92,40 @@ class WithDrawFragment : Fragment() {
             }
         }
         binding.btnConfirm.setOnClickListener {
-            validateRequest(binding.passwordEtInput.text.toString(),binding.amountEt.text.toString().toInt())
+            validateRequest(
+                binding.passwordEtInput.text.toString(),
+                binding.amountEt.text.toString(),
+                binding.nameEtInput.text.toString(),
+                binding.phoneEt.text.toString()
+            )
         }
         return binding.root
     }
 
-    private fun validateRequest(password: String, amount: Int) {
+    private fun validateRequest(
+        password: String,
+        amount: String,
+        name: String,
+        phone: String
+    ) {
         suspendWindowViewModel.progressBar(true)
-        withDrawViewModel.withdraw(
-            password =password ,
-            money =amount
-        )
+        if (password.isEmpty()){
+            binding.passwordEtInput.error=getString(R.string.enter_your_password)
+        }else if (amount.isEmpty()){
+            binding.amountEt.error=getString(R.string.enter_your_mail)
+        } else if (name.isEmpty()){
+            binding.nameEt.error=getString(R.string.enter_your_mail)
+        }else if (phone.isEmpty()){
+            binding.phoneEt.error=getString(R.string.enter_your_mail)
+        }else{
+            withDrawViewModel.withdraw(
+                password =password ,
+                money =amount.toInt(),
+                name=name,
+                phone=phone
+            )
+        }
+
     }
 
 }

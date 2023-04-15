@@ -176,6 +176,81 @@
             tools:ignore="DuplicateSpeakableTextCheck,TextContrastCheck" />
 
 
+<!--        -->
+
+
+        <TextView
+            android:id="@+id/phone_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/enter_mobile_number"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:fontFamily="@font/regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/password_et" />
+
+        <EditText
+            android:id="@+id/phone_et"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/regular"
+            android:background="@drawable/text_view_radius"
+            android:paddingHorizontal="20dp"
+            app:layout_constraintStart_toStartOf="@id/amount_tv"
+            app:layout_constraintTop_toBottomOf="@id/phone_tv" />
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/user_name"
+            android:textSize="16sp"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/phone_et" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/name_et"
+            app:passwordToggleEnabled="true"
+            app:boxStrokeWidth="0dp"
+            android:textSize="16sp"
+            android:fontFamily="@font/regular"
+            app:boxStrokeWidthFocused="0dp"
+            app:layout_constraintStart_toStartOf="@id/name_tv"
+            app:layout_constraintTop_toBottomOf="@id/name_tv"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            >
+        <EditText
+            android:id="@+id/name_et_Input"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:inputType="textPassword"
+            android:textSize="16sp"
+            android:fontFamily="@font/regular"
+            android:textColor="@color/text_color"
+            android:textColorHint="@color/hint_text_color"
+            android:background="@drawable/text_view_radius"
+            android:paddingHorizontal="20dp"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
