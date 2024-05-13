@@ -74,7 +74,7 @@ class LoginFragment : AuthenticationFragment() {
                 Log.e("Ziad Response",binding.etPhoneNumber.text.toString())
 
                 if (response.message.equals("you are not a user")){
-                    Toast.makeText(requireContext(), "something wrong", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "you are not a user", Toast.LENGTH_SHORT).show()
                     loginViewModel.clearLiveData()
                     binding.btnLogin.visibility=View.VISIBLE
                     //findNavController().navigate(R.id.action_loginFragment_to_signUpFragment)

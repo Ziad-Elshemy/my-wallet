@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -106,6 +107,7 @@ class SignUpFragment : Fragment() {
     private fun subscribeLiveData() {
         signUpViewModel.userLiveData.observe(viewLifecycleOwner) {
             it?.let { signUpResponse ->
+                Log.e("Message: ",signUpResponse.message.toString())
                 if (signUpResponse.message.equals("Failed! User is already in use!")) {
                     Toast.makeText(
                         requireContext(),
